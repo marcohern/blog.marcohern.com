@@ -3,7 +3,7 @@
 	<div class="about">
 		<h4><a href="#">Marco Hernandez</a></h4>
 
-		<p>Software Engineer with more than 10 years of experience in software and web development.</p>
+		<p></p>
 
 		<ul class="author-social">
 			<li><a target="_blank" href="https://www.facebook.com/marcohern">Facebook</a></li>
