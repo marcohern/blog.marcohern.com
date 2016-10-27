@@ -1,4 +1,4 @@
 <div class="col-four tab-full mob-full footer-info">
-	<h4>About Marco's Blog</h4>
-	<p>Coding problems and their solutions. Why? Why not?</p>
+	<h4>{{ trans('footer.about_blog') }}</h4>
+	<p>{{ trans('footer.about_blog_c') }}</p>
 </div>

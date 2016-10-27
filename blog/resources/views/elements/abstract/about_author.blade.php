@@ -1,7 +1,7 @@
 <div class="author-profile">
 	<img src="{{ URL::Asset('images/user-marcohern.jpg') }}" alt="">
 	<div class="about">
-		<h4><a href="#">Marco Hernandez</a></h4>
+		<h4><a href="#">{{ Config::get('settings.author') }}</a></h4>
 
 		<p></p>
 

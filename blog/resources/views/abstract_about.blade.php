@@ -15,25 +15,25 @@
 
 				<div class="primary-content">
 
-					<h1 class="entry-title add-bottom">About Us.</h1>
-					<p class="lead">There is no us. Just me... for now.</p>
-					<p>You can learn more about me by checking out my <a target="_blank" href="http://marcohern.com/en/#about">personal website</a>.</p>
+					<h1 class="entry-title add-bottom">{{ trans('about.about_us') }}</h1>
+					<p class="lead">{{ trans('about.subtitle') }}</p>
+					<p>{{ trans('about.my_website1') }}<a target="_blank" href="http://marcohern.com/en/#about">{{ trans('about.my_website2') }}</a>.</p>
 					<div class="row block-1-2 block-tab-full">
 						<div class="bgrid">
-							<h3>Who.</h3>
-							<p>Marco Hernandez</p>
+							<h3>{{ trans('about.who') }}.</h3>
+							<p>{{ Config::get('settings.author') }}</p>
 						</div>
 						<div class="bgrid">
-							<h3>When.</h3>
-							<p>All the time.</p>
+							<h3>{{ trans('about.when') }}.</h3>
+							<p>{{ trans('about.whenc') }}</p>
 						</div>
 						<div class="bgrid">
-							<h3>What.</h3>
-							<p>Posting about code.</p>
+							<h3>{{ trans('about.what') }}.</h3>
+							<p>{{ trans('about.whatc') }}</p>
 						</div>
 						<div class="bgrid">
-							<h3>How.</h3>
-							<p>With my hands, and very carefully.</p>
+							<h3>{{ trans('about.how') }}.</h3>
+							<p>{{ trans('about.howc') }}</p>
 						</div>
 					</div>
 				</div>

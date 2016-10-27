@@ -31,7 +31,7 @@ class HomeController extends Controller {
 
 	public function about() {
 		$locale = LaravelLocalization::getCurrentLocale();
-		return view("abstract_about_$locale");
+		return view("abstract_about");
 	}
 
 	public function contact() {
