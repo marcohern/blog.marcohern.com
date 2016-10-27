@@ -5,6 +5,13 @@
 		<li class="{{ $nav_home }}"><a href="/{{ LaravelLocalization::getCurrentLocale() }}/" title="">{{ trans('nav.home') }}</a></li>
 		<li class="{{ $nav_about }}"><a href="/{{ LaravelLocalization::getCurrentLocale() }}/about" title="">{{ trans('nav.about') }}</a></li>
 		<li class="{{ $nav_contact }}"><a href="http://marcohern.com/{{ (LaravelLocalization::getCurrentLocale() == 'es') ? '' : LaravelLocalization::getCurrentLocale().'/' }}#contacts" title="">{{ trans('nav.contact') }}</a></li>
+		<li>
+			@if (LaravelLocalization::getCurrentLocale() == 'es')
+				<a href="/en">English</a>
+			@else
+				<a href="/es">Español</a>
+			@endif
+		</li>
 		{{--							
 		<li class="has-children">
 			<a href="category.html" title="">Categories</a>
