@@ -2,9 +2,9 @@
 
 <nav id="main-nav-wrap">
 	<ul class="main-navigation sf-menu">
-		<li class="current"><a href="/{{ LaravelLocalization::getCurrentLocale() }}/" title="">Home</a></li>
-		<li><a href="/{{ LaravelLocalization::getCurrentLocale() }}/about" title="">About</a></li>
-		<li><a href="/{{ LaravelLocalization::getCurrentLocale() }}/contact" title="">Contact</a></li>
+		<li class="{{ $nav_home }}"><a href="/{{ LaravelLocalization::getCurrentLocale() }}/" title="">Home</a></li>
+		<li class="{{ $nav_about }}"><a href="/{{ LaravelLocalization::getCurrentLocale() }}/about" title="">About</a></li>
+		<li class="{{ $nav_contact }}"><a href="http://marcohern.com/{{ (LaravelLocalization::getCurrentLocale() == 'es') ? '' : LaravelLocalization::getCurrentLocale().'/' }}#contacts" title="">Contact</a></li>
 		{{--							
 		<li class="has-children">
 			<a href="category.html" title="">Categories</a>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class HomeController extends Controller {
+
 	public function select_language() {
 		return view('abstract_index');
 	}
@@ -29,7 +30,8 @@ class HomeController extends Controller {
 	}
 
 	public function about() {
-		return view('abstract_about');
+		$locale = LaravelLocalization::getCurrentLocale();
+		return view("abstract_about_$locale");
 	}
 
 	public function contact() {
