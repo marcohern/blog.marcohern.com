@@ -18,10 +18,7 @@ Route::group(
 	], function() {
 		
 		Route::get('/', 'HomeController@index');
-
-		Route::get('/', 'HomeController@about');
-		
-		Route::get('/', 'HomeController@contact');
+		Route::get('/about', 'HomeController@about');
 
 		Route::get('/post/{post}', 'HomeController@post');
 

@@ -1,5 +1,8 @@
 @extends('layouts.abstract')
 
+@section('description')
+{{ $post->title }} - Marco's Blog @stop
+
 @section('body')
 <!-- content
    ================================================== -->
