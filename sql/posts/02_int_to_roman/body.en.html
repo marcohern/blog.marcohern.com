@@ -1,4 +1,4 @@
-<p>Here we are going to look at how to parse an interger and convert it to it's equivalent Roman numeral. To achieve this, we must first understand Ruman numerals themselves and how to convert them.</p>
+<p>Here we are going to look at how to parse an integer and convert it to it's equivalent Roman numeral. To achieve this, we must first understand Ruman numerals themselves and how to convert them.</p>
 
 <h2>About Roman Numerals</h2>
 
@@ -6,79 +6,40 @@
 <p>If you look closely to roman numerals, you will find that they are in fact, decimal. What that means is, all though there is no unique symbol for each digit, there is a unique template for each digit.</p>
 
 <p>To illustrate, let's display all the roman numerals and numbers from 1 to 9 and beside it, multiples of 10 starting from 10 to 90:</p>
+
 <table>
 	<thead>
 		<tr>
-			<th>Number</th>
-			<th>Roman</th>
-			<th>&nbsp;</th>
-			<th>Number</th>
-			<th>Roman</th>
+			<th>Number</th><th>Roman</th><th>&nbsp;</th><th>Number</th><th>Roman</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<th>1</th>
-			<td>I</td>
-			<td></td>
-			<th>10</th>
-			<td>X</td>
+			<th>1</th><td>I</td><td></td><th>10</th><td>X</td>
 		</tr>
 		<tr>
-			<th>2</th>
-			<td>II</td>
-			<td></td>
-			<th>20</th>
-			<td>XX</td>
+			<th>2</th><td>II</td><td></td><th>20</th><td>XX</td>
 		</tr>
 		<tr>
-			<th>3</th>
-			<td>III</td>
-			<td></td>
-			<th>30</th>
-			<td>XXX</td>
+			<th>3</th><td>III</td><td></td><th>30</th><td>XXX</td>
 		</tr>
 		<tr>
-			<th>4</th>
-			<td>IV</td>
-			<td></td>
-			<th>40</th>
-			<td>XL</td>
+			<th>4</th><td>IV</td><td></td><th>40</th><td>XL</td>
 		</tr>
 		<tr>
-			<th>5</th>
-			<td>V</td>
-			<td></td>
-			<th>50</th>
-			<td>L</td>
+			<th>5</th><td>V</td><td></td><th>50</th><td>L</td>
 		</tr>
 		<tr>
-			<th>6</th>
-			<td>VI</td>
-			<td></td>
-			<th>60</th>
-			<td>LX</td>
+			<th>6</th><td>VI</td><td></td><th>60</th><td>LX</td>
 		</tr>
 		<tr>
-			<th>7</th>
-			<td>VII</td>
-			<td></td>
-			<th>70</th>
-			<td>LXX</td>
+			<th>7</th><td>VII</td><td></td><th>70</th><td>LXX</td>
 		</tr>
 		<tr>
-			<th>8</th>
-			<td>VIII</td>
-			<td></td>
-			<th>80</th>
-			<td>LXXX</td>
+			<th>8</th><td>VIII</td><td></td><th>80</th><td>LXXX</td>
 		</tr>
 		<tr>
-			<th>9</th>
-			<td>IX</td>
-			<td></td>
-			<th>90</th>
-			<td>XC</td>
+			<th>9</th><td>IX</td><td></td><th>90</th><td>XC</td>
 		</tr>
 	</tbody>
 </table>
@@ -100,72 +61,38 @@
 	</thead>
 	<tbody>
 		<tr>
-			<th>1</th>
-			<td>I</td>
-			<td>X</td>
-			<td>C</td>
-			<td>M</td>
+			<th>1</th><td>I</td><td>X</td><td>C</td><td>M</td>
 		</tr>
 		<tr>
-			<th>2</th>
-			<td>II</td>
-			<td>XX</td>
-			<td>CC</td>
-			<td>MM</td>
+			<th>2</th><td>II</td><td>XX</td><td>CC</td><td>MM</td>
 		</tr>
 		<tr>
-			<th>3</th>
-			<td>III</td>
-			<td>XXX</td>
-			<td>CCC</td>
-			<td>MMM</td>
+			<th>3</th><td>III</td><td>XXX</td><td>CCC</td><td>MMM</td>
 		</tr>
 		<tr>
-			<th>4</th>
-			<td>IV</td>
-			<td>XL</td>
-			<td>CD</td>
-			<td></td>
+			<th>4</th><td>IV</td><td>XL</td><td>CD</td><td></td>
 		</tr>
 		<tr>
-			<th>5</th>
-			<td>V</td>
-			<td>L</td>
-			<td>D</td>
-			<td></td>
+			<th>5</th><td>V</td><td>L</td><td>D</td><td></td>
 		</tr>
 		<tr>
-			<th>6</th>
-			<td>VI</td>
-			<td>LX</td>
-			<td>DC</td>
-			<td></td>
+			<th>6</th><td>VI</td><td>LX</td><td>DC</td><td></td>
 		</tr>
 		<tr>
-			<th>7</th>
-			<td>VII</td>
-			<td>LXX</td>
-			<td>DCC</td>
-			<td></td>
+			<th>7</th><td>VII</td><td>LXX</td><td>DCC</td><td></td>
 		</tr>
 		<tr>
-			<th>8</th>
-			<td>VIII</td>
-			<td>LXXX</td>
-			<td>DCCC</td>
-			<td></td>
+			<th>8</th><td>VIII</td><td>LXXX</td><td>DCCC</td><td></td>
 		</tr>
 		<tr>
-			<th>9</th>
-			<td>IX</td>
-			<td>XC</td>
-			<td>CM</td>
-			<td></td>
+			<th>9</th><td>IX</td><td>XC</td><td>CM</td><td></td>
 		</tr>
 	</tbody>
 </table>
 
-<p>Now, with this more elaborate table, we can not only see the patterns of each power of 10, but also, we can build any roman numeral out of any decimal number. So, let's say the number 2345:</p>
+<p>Now, with this more elaborate table, we can not only see the patterns of each power of 10, but also, we can build any roman numeral out of any decimal number.</p>
+
+<p>So, let's say we want to convert number <b>2345</b> to roman numerals:</p>
 <pre><code>
 	2345 = 2000 + 300 + 40 + 5
 	2345 = 2*1000 + 3*100 + 4*10 + 5*1
@@ -183,9 +110,13 @@
 
 <p>Mhh... good question! What about zeros? Well, the short answer is, just ignore the zeros. for example: the roman numeral for 802 is 800 + 2, or 8*10<sup>2</sup> + 2*10<sup>0</sup>, which is LCCC + II, or LCCCII. As you can see, none of the 'tens' roman symbols are in the number.</p>
 
-<p>As for the long answer, and as you may all ready know, roman numerals do not have a representation of zero. Another way of interpreting it is that roman numerals do in fact have a zero, and that is actually represented by '' (empty string), but this would clearly be cause for ambiguity. The fact is, not having a zero may well be the defining reason for why the roman numerals have so many limitations. You may not realize it now, but hopefuly you will by the end of reading this and/or making the algorithm.</p>
+<p>As for the long answer, and as you may all ready know, roman numerals do not have a representation of zero. Another way of interpreting it is that roman numerals do in fact have a zero, and that is actually represented by '' (empty string), but this would clearly be cause for ambiguity. The fact is, not having a zero may well be the defining reason for why the roman numerals have so many limitations. You may not realize it now, but hopefully you will by the end of reading this and/or making the algorithm.</p>
 
 <h2>Before we start coding</h2>
+
+<h3>The illustration of the algorithm</h3>
+<p>The following sequence may illustrate more or less what the algorithm will do. In the example, we convert number <b>2904</b> to roman numerals, by cycling over each digit from the least significant to the most significant.</p>
+<p style="text-align: center;"><img src="/images/gifs/algorithm_int_to_roman.gif" alt="Algorithm to convert integer number 2904 to roman numerals."/></p>
 
 <p>keep in mind that I will be using <b>C++</b> to code the solution. It should, however, be easy to port to any other language, such as Java or C#.</p>
 
@@ -203,7 +134,7 @@ int main(int argc, const char *argv[]) {
 }
 </code></pre>
 <h3>The Roman class</h3>
-<p>Just for kicks, we will use a bit of object orientated design. we will create a class only for the pourpose of converting from a positive integer to a roman string. So let's create a new class called <b>Roman</b> in <b>Roman.hpp</b>:</p>
+<p>Just for kicks, we will use a bit of object orientated design by creating a class only for the pourpose of converting from a positive integer to a roman string. So let's create a new class called <b>Roman</b> in <b>Roman.hpp</b>:</p>
 <pre><code>
 //Roman.hpp
 #include &lt;string&gt;
@@ -222,18 +153,18 @@ public:
 };
 </code></pre>
 
-<p>The first thing we notice is a static variable <b>symbols</b>, a matrix of chars. This is a table that stores all available combinations of roman letters that correspond to each individual digit of a number. For example: to convert the first, or least significant digit of any number we would need 3 chars: I, V and X, the same goes for the second digit or tens, which use X, L and C, and so on. The whole table is actually this:</p>
+<p>The first thing we notice is a static variable <b>symbols</b>, a matrix of chars. This is a table that stores all available combinations of roman letters that correspond to each individual digit of a number. For example: to convert the first, or least significant digit of any number, we would need 3 chars: I, V and X, the same goes for the second digit or tens, which use X, L and C, and so on. The whole table can be summarized as this:</p>
 
 <ul>
-	<li>10<sup>0</sup>: use I, V and X</li>
-	<li>10<sup>1</sup>: use X, L and C</li>
-	<li>10<sup>2</sup>: use C, D and M</li>
-	<li>10<sup>3</sup>: use M, and we are out of letters</li>
+	<li>For 10<sup>0</sup>: use I, V and X</li>
+	<li>For 10<sup>1</sup>: use X, L and C</li>
+	<li>For 10<sup>2</sup>: use C, D and M</li>
+	<li>For 10<sup>3</sup>: use M, and we are out of letters</li>
 </ul>
 
 <p>The second thing we notice is a <b>buffer</b> private variable, an array of chars. That is where we will store our roman numeral while we are parsing the integer. In the end, the buffer will be copied into a string and returned. The buffer is private because there is no need for it to be public, since we will return a copy of it.</p>
 
-<p>Third, we notice the <b>digit</b> private method. This method is in charge of converting a single digit into it's corresponding roman numeral. Let's look at its parameters: Variable <b>k</b> is the index of the buffer where we are storing the current roman numeral, and it is passed by reference so we can keep track of it from the outside. Input <b>d</b> is the digit to convert,  a number between 0 and 9. 0 will be ignored, and any other digit will be converted. We also see three chars, <b>i</b>, <b>v</b> and <b>x</b>. Those are the corresponding roman symbols we will use. Essentialy, these symbols will change depending on where in the number is the digit we are converting.</p>
+<p>Third, we notice the <b>digit</b> private method. This method is in charge of converting a single digit into it's corresponding roman numeral. Let's look at its parameters: Variable <b>k</b> is the index of the buffer where we are storing the current roman numeral, and it is passed by reference so we can keep track of it from the outside. Input <b>d</b> is the digit to convert,  a number between 0 and 9. 0 will be ignored, and any other digit will be converted. We also see three chars, <b>i</b>, <b>v</b> and <b>x</b>. Those are the corresponding roman symbols we will use. Essentially, these symbols will change depending on where in the number is the digit we are converting.</p>
 <p>Finally, we notice the <b>intToRoman</b> public method, this is the method that will cycle through and convert each digit, one by one.</p>
 
 <h3>Defining the symbols table</h3>
@@ -247,10 +178,10 @@ char Roman::symbols[4][3] = {
 	{'M','?','?'}
 };
 </code></pre>
-<p>As we mentioned before, we will use this table to determine which letters to use during the conversion of a single digit. The letters we use will be determined by the power of 10 we are curently examining. if we start from the least significant digit to the most significant digit, that would mean that the first digit, we want to use index zero, for which 10<sup>0</sup> corresponds to the letters I, V and X, which is exactly what we want. The next index 1 (10<sup>1</sup>) will yield the letters X, L and C.</p>
+<p>As we mentioned before, we will use this table to determine which letters to use during the conversion of a single digit. The letters we use will be determined by the power of 10 we are currently examining. if we start from the least significant digit to the most significant digit, that would mean that the first digit, we want to use index zero, for which 10<sup>0</sup> corresponds to the letters I, V and X, which is exactly what we want. The next index 1 (10<sup>1</sup>) will yield the letters X, L and C.</p>
 
 <h3>Converting each digit</h3>
-<p>This is probably the coolest part of the algorithm. It's the part that does the convertion. It is the most complicated part of the whole algorithm, but it is actually not that complicated. In fact, it is very simple. All we have to do is convert directly each digit. A switch works well enough, and depending on what digit we get, we convert directly. We define the method <b>digit</b> to do just that.</p>
+<p>This is probably the coolest part of the algorithm. It's the part that does the conversion. It is the most complicated part of the whole algorithm, but it is actually not that complicated. In fact, it is very simple. All we have to do is convert directly each digit. A switch works well enough, and depending on what digit we get, we convert directly. We define the method <b>digit</b> to do just that.</p>
 <pre><code>
 //Roman.cpp
 [...]
@@ -300,7 +231,7 @@ void Roman::digit(int &k, int d, char i, char v, char x) {
 	}
 }
 </code></pre>
-<p>And with that, we can now convert each digit accurately, provided that we set the correct letters as the parameters. Notice how we assign each letter in inverse order. For example: in the case of digit 8, we first assign the 3 Is and finally the V, this is because we are saving the number in the buffer starting from the end to the beggining. In other words, we start with the least significant digit and work our way backwards, so we begin by placing the roman numerals at the end and in inverse order.</p>
+<p>And with that, we can now convert each digit accurately, provided that we set the correct letters as the parameters. Notice how we assign each letter in inverse order. For example: in the case of digit 8, we first assign the 3 Is and finally the V, this is because we are saving the number in the buffer starting from the end to the beginning. In other words, we start with the least significant digit and work our way backwards, so we begin by placing the roman numerals at the end and in inverse order.</p>
 <h3>Cycling through each digit</h3>
 <p>Now that we have the digit method, we must call it for each digit and make sure the correct letters are being used.</p>
 <pre><code>
@@ -340,43 +271,47 @@ int main(int argc, const char *argv[]) {
 <p>And that is it. In the sample we print out the roman value of 2345, which should be <b>MMCCCXLV</b>.</p>
 <p>Now it is up to you to read the number from the input, or whatever you want to do.</p>
 <h2>My thoughts and conclusions</h2>
-<p>I can say that I thought I understood roman numerals before I solved this problem, which was not too long ago. It's almost embarrasing at this point. But then again, it's not like we use roman numerals in our daily lives, so I can hope that I deserve a little redemption.</p>
+<p>I can say that I thought I understood roman numerals before I solved this problem, which was not too long ago. It's almost embarrassing at this point. But then again, it's not like we use roman numerals in our daily lives, so I can hope that I deserve a little redemption.</p>
 
-<p>After unerstanding roman numerals, I understood their limitations: by not having a zero, the roman people were forced to change the digit template everytime a new letter was being appended, otherwise there was no way to distinguish between 1 (I), 10 (X) or 100 (C). If they had a zero, however, we would not need new symbols everytime we append a digit, and we could represent 10 with I0, and 400 with IV00. You may be able to see now that if the roman numerals had a zero, we would only need those first ten ruman numerals and zero to create the rest. But alas, I don't it is my understanding that romans at the time could not even grasp the concept of zero.</p>
+<p>After understanding roman numerals, I learned about their limitations: by not having a zero, the roman people were forced to change the digit template every time a new digit was being appended, otherwise there was no way to distinguish between 1 (I), 10 (X) or 100 (C). If they had a zero, however, they would not need new symbols every time we append a digit, and we could represent 10 with I0, and 400 with IV00. You may be able to see now that if the roman numerals had a zero, we would only need those first ten roman numerals and zero to create the rest. But alas, my understanding is that romans at the time could not even grasp the concept of zero.</p>
 
+<h3>Roman Numerals upper limit</h3>
 <p>The roman numerals use 7 letters of the english alphabet (I, V, X, L, C and M) which forces onto the roman numeral an upper limit of 3999. So I wondered, had the Roman numerals used all the letters en the english alphabet (26 in total), how much would the upper limit increase?</p>
 
-<p>Well, for 7 digits we can calculate the following way:</p>
+<p>Well, for 7 digits we can calculate the following way: Where N is the amount of letters to use...</p>
 
-<ol>
-	<li>Let's call the number of letters we have available M.</li>
-	<li>We can separate the number of letters M between N and R.</li>
-	<li>N is equal to M if M is even, otherwise it is equal to M-1 if M is odd. In this case, M=7, it is odd, therefore, N=6.</li>
-	<li>R is 1 minus the modulus between N and 2. In laymans terms, R=1 if M is even, and R=0 if M is odd.</li>
-	<li>And now we can calculate:</li>
-</ol>
 
-<p>Roman Numeral Ceiling = (10<sup>N/2</sup> - 1) + 3*10<sup>N/2</sup> + R*5*(10<sup>N/2)</sup></p>
-<p>So in the case of 7, N=6, and R=0:</p>
-<p>Roman Numeral Ceiling = (10<sup>|6/2|</sup> - 1) + 3*10<sup>6/2</sup> + 0*5*(10<sup>6/2</sup>)</p>
-<p>Roman Numeral Ceiling = (10<sup>3</sup> - 1) + 3*10<sup>3</sup></p>
-<p>Roman Numeral Ceiling = (1000 - 1) + 3000</p>
-<p>Roman Numeral Ceiling = 999 + 3000</p>
-<p>Roman Numeral Ceiling = 3999</p>
+<pre><code>
+//Square brackets [] represent whole floor number, so [4.56] = 4
 
-<p>So if we use 7 letters to represent Roman Numerals, we get that we can represent a maximum of 3999 different numbers.</p>
-<p>So, what if we use 26 letters? Well, since 26 is even, N=26 and R=1:</p>
+//Percent % is represents modulus operation,
+//the reminder of a division, so 3%2=1, and 4%2=0.
 
-<p>Roman Numeral Ceiling = (10<sup>26/2</sup> - 1) + 3*10<sup>26/2</sup> + 1*5*(10<sup>26/2)</sup></p>
+//N is the amount of letters to use
+//(ie. 7 letters: I, V, X, L, C, D and M)
+Roman_Numeral_Ceiling = (10<sup>[N/2]</sup> - 1) + (3 + 5+(1 - N%2))*10<sup>[N/2]</sup>
 
-<p>Roman Numeral Ceiling = (10<sup>13</sup> - 1) + 3*10<sup>13</sup> + 5*(10<sup>13</sup>)</p>
+//So in the case of N=7:</p>
+Roman_Numeral_Ceiling = (10<sup>[7/2]</sup> - 1) + (3 + 5*(1 - 7%2))*10<sup>[7/2]</sup>
+Roman_Numeral_Ceiling = (10<sup>[3.5]</sup> - 1) + (3 + 5*(1 - 1))*10<sup>[3.5]</sup>
+Roman_Numeral_Ceiling = (10<sup>3</sup> - 1) + 3*10<sup>3</sup>
+Roman_Numeral_Ceiling = (1000 - 1) + 3*1000
+Roman_Numeral_Ceiling = 999 + 3000
+Roman_Numeral_Ceiling = 3999
+</code></pre>
 
-<p>Roman Numeral Ceiling = (10,000,000,000,000 - 1) + 3*10,000,000,000,000 + 5*(10,000,000,000,000)</p>
+<p>So if we use 7 letters to represent Roman Numerals, we can represent a maximum of 3999 different numerals.</p>
+<p>So, what if we use 26 letters? Let's find out!</p>
 
-<p>Roman Numeral Ceiling = 9,999,999,999,999 + 30,000,000,000,000 + 50,000,000,000,000</p>
+<pre><code>
+Roman_Numeral_Ceiling = (10<sup>[26/2]</sup> - 1) + (3 + 5*(1 - 26%2))*10<sup>[26/2]</sup>
+Roman_Numeral_Ceiling = (10<sup>13</sup> - 1) + (3 + 5*(1 - 0))*10<sup>13</sup>
+Roman_Numeral_Ceiling = (10<sup>13</sup> - 1) + 8*10<sup>13</sup>
+Roman_Numeral_Ceiling = (10,000,000,000,000 - 1) + 80,000,000,000,000
+Roman_Numeral_Ceiling = 9,999,999,999,999 + 80,000,000,000,000
+Roman_Numeral_Ceiling = 89,999,999,999,999
+</code></pre>
 
-<p>Roman Numeral Ceiling = 89,999,999,999,999</p>
+<p>So for 26 letters, we can produce Roman-like numerals that would reach a maximum number that we can call, of almost 90 trillion in the <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">short scale</a>, or 90 billion in the <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">long scale</a>.</p>
 
-<p>So for 26 letters, we can produce Roman-like numerals that would reach a maximum number that, we can call, of almost 90 trillion in the <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">short scale</a>, or 90 billion in the <a href="https://en.wikipedia.org/wiki/Long_and_short_scales">long scale</a>.</p>
-
-<p>And that is it. If you like, you can download the C++ code in <a href="/code/02_intToRoman.zip">this link</a>. The code is in C++ language and should work on most, if not any C++ compilers. I hope this article helps you in any way.</p>
+<p>And that's it. If you like, you can download the C++ code in <a href="/code/02_intToRoman.zip">this link</a>. The code is in C++ language and should work on most, if not any C++ compilers. I hope this article helps you in any way.</p>

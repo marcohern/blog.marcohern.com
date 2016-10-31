@@ -26,7 +26,14 @@ class HomeController extends Controller {
 			->select('*')
 			->where('uslug',$post)->first();
 
-		return view('abstract_post',['post' => $post]);
+		$languages = DB::table('posts')
+			->select('lang','uslug')
+			->where([
+				['lang','<>',$post->lang],
+				['lslug',$post->lslug]
+			])->get();
+
+		return view('abstract_post',['post' => $post,'nav_lang' => $languages]);
 	}
 
 	public function about() {

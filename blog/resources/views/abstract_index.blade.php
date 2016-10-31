@@ -1,5 +1,8 @@
 @extends('layouts.abstract')
 
+@section('title')
+Programming, excercices, stuff @stop
+
 @section('description')
 Marco's Blog, Programming, C++, Excercises. Where Marco solves well known problem by writing not so well known code. @stop
 

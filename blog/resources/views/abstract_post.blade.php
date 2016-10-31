@@ -1,7 +1,10 @@
 @extends('layouts.abstract')
 
+@section('title')
+{{ $post->title }} @stop
+
 @section('description')
-{{ $post->title }} - Marco's Blog @stop
+{{ $post->descr }} @stop
 
 @section('body')
 <!-- content
@@ -23,7 +26,7 @@
 						<h1 class="page-title">{{ $post->title }}</h1>	
 
 						<ul class="entry-meta">
-							<li class="date">September 06, 2016</li>			
+							<li class="date">{{ strftime('%B %e, %G', (new Datetime($post->created_at))->getTimestamp()) }}</li>			
 						</ul>
 						<p class="lead">{{ $post->descr }}</p>
 

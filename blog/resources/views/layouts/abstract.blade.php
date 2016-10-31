@@ -7,7 +7,7 @@
    <!--- basic page needs
    ================================================== -->
    <meta charset="utf-8">
-	<title>{{ Config::get('settings.name') }}</title>
+	<title>@yield('title') - {{ Config::get('settings.name') }}</title>
 	<meta name="description" content="@yield('description')">  
 	<meta name="author" content="{{ Config::get('settings.author') }}">
 

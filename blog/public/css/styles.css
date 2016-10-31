@@ -8,3 +8,7 @@
 	font-size: small;
 	text-align: center;
 }
+
+table.table_half {
+	width: 50%;
+}
