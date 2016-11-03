@@ -283,6 +283,16 @@ int main(int argc, const char *argv[]) {
 
 <p>Ahora está a tu discreción si deseas leer el número de la entrada, o sea lo que sea que quieras hacer.</p>
 
+<h2>Calculando la cota superior asistótica (Big-O)</h2>
+
+<p>Calcular la eficiencia del algoritmo es relativamente fácil. Inicialmente se puede ver que hay un ciclo repetitivo, lo que sugiere que podría haber algo de complejidad en el algoritmo. Iniciemos por decir que vamos a calcular T(N) donde N es la cantidad de dígitos que contiene el número decimal que se va a convertir a romano.</p>
+<pre><code>T(N) = O(N)</code></pre>
+<p>Entonces T(N) = O(N), sin embargo, No es posible convertir números mas grandes que que 3999, por lo tanto, N no puede tener mas de 4 dígitos:</p>
+<pre><code>T(N) = O(4)
+T(N) = O(1)</code></pre>
+
+<p>Entonces la cota superior asistótica es en realidad O(1), lo que en general significa que siempre consume la misma cantidad de tiempo al ejecutarse. Existe un limite sobre cuantos números se pueden convertir a romanos, y por lo tanto, la complejidad no es un factor.</p>
+
 <h2>Conclusiones y Pensamientos</h2>
 
 <p>Puedo decir que pensé que entendía números romanos antes de resolver este problema, lo cual no fue hace mucho tiempo. Es penoso para mi admitirlo a estas alturas. Pero por otro lado, yo no utilizo números romanos en mi vida diaria, así que espero merecer un poco de redención.</p>

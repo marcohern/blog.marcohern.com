@@ -268,6 +268,20 @@ int main(int argc, const char *argv[]) {
 
 <p>And that is it. In the sample we print out the roman value of 2345, which should be <b>MMCCCXLV</b>.</p>
 <p>Now it is up to you to read the number from the input, or whatever you want to do.</p>
+
+
+<h2>Calculating Big-O</h2>
+
+<p>To calculate the efficiency of this algorithm is relatively easy. We can already see that there is a loop in the code, which may impact the performance of the algorithm and weather it scales properly. Let's start by establishing that we will calculate T(N) where N is the amount of digits of the number we want to convert to roman.</p>
+
+<pre><code>T(N) = O(N)</code></pre>
+
+<p>Well then, T(N) = O(N). But, The largest number we can convert to roman is 3999, which has 4 digits. Therefore:</p>
+<pre><code>T(N) = O(4)
+T(N) = O(1)</code></pre>
+
+<p>And there you have it. O(1) Means that the algorithm takes the same amount of time no matter the input. We know that the input cannot be any bigger that 4 digits, so it's not a matter of how well the algorithms scales because the algorithm essentially does not scale at all.</p>
+
 <h2>My thoughts and conclusions</h2>
 <p>I can say that I thought I understood roman numerals before I solved this problem, which was not too long ago. It's almost embarrassing at this point. But then again, it's not like we use roman numerals in our daily lives, so I can hope that I deserve a little redemption.</p>
 

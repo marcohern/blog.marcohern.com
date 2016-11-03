@@ -15,7 +15,7 @@ class HomeController extends Controller {
 	public function index() {
 		$locale = LaravelLocalization::getCurrentLocale();
 		$posts = DB::table('posts')
-			->select('*')
+			->select('lang', 'uslug', 'title', 'descr', 'cover')
 			->where('lang', $locale)
 			->get();
 		return view('abstract_index',['posts' => $posts]);
