@@ -3,7 +3,15 @@
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="{{ LaravelLocalization::getCurrentLocale() }}"> <!--<![endif]-->
 <head>
-
+   <meta property="og:url" content="{{ Request::url() }}" />
+   <meta property="og:type" content="article" />
+   <meta property="og:title" content="@yield('title') - {{ Config::get('settings.name') }}" />
+   <meta property="og:description" content="@yield('description')" />
+   @if (isset($posts))
+   <meta property="og:image" content="{{ url('images/user-marcohern.jpg') }}" />
+   @elseif (isset($post))
+   <meta property="og:image" content='{{ url("image/original/original/{$post->cover}") }}' />
+   @endif
    <!--- basic page needs
    ================================================== -->
    <meta charset="utf-8">
@@ -106,6 +114,15 @@
    {{--<script src="{{ URL::Asset('abstract/js/jquery.appear.js') }}"></script>--}}
    <script src="{{ URL::Asset('abstract/js/main.js') }}"></script>
    @yield('scripts')
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-15787626-9', 'auto');
+  ga('send', 'pageview');
+</script>
 </body>
 
 </html>

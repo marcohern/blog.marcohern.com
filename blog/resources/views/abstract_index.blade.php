@@ -1,10 +1,10 @@
 @extends('layouts.abstract')
 
 @section('title')
-Programming, excercices, stuff @stop
+{{ trans('header.title') }} @stop
 
 @section('description')
-Marco's Blog, Programming, C++, Excercises. Where Marco solves well known problem by writing not so well known code. @stop
+{{ trans('header.description') }} @stop
 
 @section('body')
 
