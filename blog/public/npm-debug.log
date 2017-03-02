@@ -1,0 +1,682 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'photo-sphere-viewer' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData photo-sphere-viewer
+8 silly fetchNamedPackageData photo-sphere-viewer
+9 silly mapToRegistry name photo-sphere-viewer
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'photo-sphere-viewer',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'photo-sphere-viewer',
+12 silly mapToRegistry   name: 'photo-sphere-viewer',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/photo-sphere-viewer
+14 verbose request uri https://registry.npmjs.org/photo-sphere-viewer
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 3:53:17 PM
+17 verbose request id b6b69d6ba20eb861
+18 http request GET https://registry.npmjs.org/photo-sphere-viewer
+19 http 200 https://registry.npmjs.org/photo-sphere-viewer
+20 verbose headers { server: 'nginx/1.10.1',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'last-modified': 'Sun, 23 Oct 2016 15:06:41 GMT',
+20 verbose headers   etag: 'W/"580cd201-10cf"',
+20 verbose headers   'content-encoding': 'gzip',
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   'content-length': '1656',
+20 verbose headers   'accept-ranges': 'bytes',
+20 verbose headers   date: 'Thu, 02 Mar 2017 20:53:23 GMT',
+20 verbose headers   via: '1.1 varnish',
+20 verbose headers   age: '0',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'x-served-by': 'cache-ord1721-ORD',
+20 verbose headers   'x-cache': 'MISS',
+20 verbose headers   'x-cache-hits': '0',
+20 verbose headers   'x-timer': 'S1488488003.431136,VS0,VE45',
+20 verbose headers   vary: 'Accept-Encoding' }
+21 silly get cb [ 200,
+21 silly get   { server: 'nginx/1.10.1',
+21 silly get     'content-type': 'application/json',
+21 silly get     'last-modified': 'Sun, 23 Oct 2016 15:06:41 GMT',
+21 silly get     etag: 'W/"580cd201-10cf"',
+21 silly get     'content-encoding': 'gzip',
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     'content-length': '1656',
+21 silly get     'accept-ranges': 'bytes',
+21 silly get     date: 'Thu, 02 Mar 2017 20:53:23 GMT',
+21 silly get     via: '1.1 varnish',
+21 silly get     age: '0',
+21 silly get     connection: 'keep-alive',
+21 silly get     'x-served-by': 'cache-ord1721-ORD',
+21 silly get     'x-cache': 'MISS',
+21 silly get     'x-cache-hits': '0',
+21 silly get     'x-timer': 'S1488488003.431136,VS0,VE45',
+21 silly get     vary: 'Accept-Encoding' } ]
+22 verbose get saving photo-sphere-viewer to C:\Users\ComputerGAP\AppData\Roaming\npm-cache\registry.npmjs.org\photo-sphere-viewer\.cache.json
+23 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+24 silly install normalizeTree
+25 silly loadCurrentTree Finishing
+26 silly loadIdealTree Starting
+27 silly install loadIdealTree
+28 silly cloneCurrentTree Starting
+29 silly install cloneCurrentTreeToIdealTree
+30 silly cloneCurrentTree Finishing
+31 silly loadShrinkwrap Starting
+32 silly install loadShrinkwrap
+33 silly loadShrinkwrap Finishing
+34 silly loadAllDepsIntoIdealTree Starting
+35 silly install loadAllDepsIntoIdealTree
+36 silly resolveWithNewModule photo-sphere-viewer@3.2.2 checking installable status
+37 silly cache add args [ 'photo-sphere-viewer', null ]
+38 verbose cache add spec photo-sphere-viewer
+39 silly cache add parsed spec Result {
+39 silly cache add   raw: 'photo-sphere-viewer',
+39 silly cache add   scope: null,
+39 silly cache add   escapedName: 'photo-sphere-viewer',
+39 silly cache add   name: 'photo-sphere-viewer',
+39 silly cache add   rawSpec: '',
+39 silly cache add   spec: 'latest',
+39 silly cache add   type: 'tag' }
+40 silly addNamed photo-sphere-viewer@latest
+41 verbose addNamed "latest" is being treated as a dist-tag for photo-sphere-viewer
+42 info addNameTag [ 'photo-sphere-viewer', 'latest' ]
+43 silly mapToRegistry name photo-sphere-viewer
+44 silly mapToRegistry using default registry
+45 silly mapToRegistry registry https://registry.npmjs.org/
+46 silly mapToRegistry data Result {
+46 silly mapToRegistry   raw: 'photo-sphere-viewer',
+46 silly mapToRegistry   scope: null,
+46 silly mapToRegistry   escapedName: 'photo-sphere-viewer',
+46 silly mapToRegistry   name: 'photo-sphere-viewer',
+46 silly mapToRegistry   rawSpec: '',
+46 silly mapToRegistry   spec: 'latest',
+46 silly mapToRegistry   type: 'tag' }
+47 silly mapToRegistry uri https://registry.npmjs.org/photo-sphere-viewer
+48 verbose addNameTag registry:https://registry.npmjs.org/photo-sphere-viewer not in flight; fetching
+49 verbose get https://registry.npmjs.org/photo-sphere-viewer not expired, no request
+50 silly addNameTag next cb for photo-sphere-viewer with tag latest
+51 silly addNamed photo-sphere-viewer@3.2.2
+52 verbose addNamed "3.2.2" is a plain semver version for photo-sphere-viewer
+53 silly mapToRegistry name photo-sphere-viewer
+54 silly mapToRegistry using default registry
+55 silly mapToRegistry registry https://registry.npmjs.org/
+56 silly mapToRegistry data Result {
+56 silly mapToRegistry   raw: 'photo-sphere-viewer',
+56 silly mapToRegistry   scope: null,
+56 silly mapToRegistry   escapedName: 'photo-sphere-viewer',
+56 silly mapToRegistry   name: 'photo-sphere-viewer',
+56 silly mapToRegistry   rawSpec: '',
+56 silly mapToRegistry   spec: 'latest',
+56 silly mapToRegistry   type: 'tag' }
+57 silly mapToRegistry uri https://registry.npmjs.org/photo-sphere-viewer
+58 verbose addRemoteTarball https://registry.npmjs.org/photo-sphere-viewer/-/photo-sphere-viewer-3.2.2.tgz not in flight; adding
+59 verbose addRemoteTarball [ 'https://registry.npmjs.org/photo-sphere-viewer/-/photo-sphere-viewer-3.2.2.tgz',
+59 verbose addRemoteTarball   '8f4ae644b3ebe348aa23a05e31f5a4455a1b6721' ]
+60 info retry fetch attempt 1 at 3:53:18 PM
+61 info attempt registry request try #1 at 3:53:18 PM
+62 http fetch GET https://registry.npmjs.org/photo-sphere-viewer/-/photo-sphere-viewer-3.2.2.tgz
+63 http fetch 200 https://registry.npmjs.org/photo-sphere-viewer/-/photo-sphere-viewer-3.2.2.tgz
+64 silly fetchAndShaCheck shasum 8f4ae644b3ebe348aa23a05e31f5a4455a1b6721
+65 verbose addTmpTarball C:\Users\COMPUT~1\AppData\Local\Temp\npm-76072-b8fdda8b\registry.npmjs.org\photo-sphere-viewer\-\photo-sphere-viewer-3.2.2.tgz not in flight; adding
+66 verbose addTmpTarball already have metadata; skipping unpack for photo-sphere-viewer@3.2.2
+67 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+68 silly cache afterAdd photo-sphere-viewer@3.2.2
+69 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\photo-sphere-viewer\3.2.2\package\package.json not in flight; writing
+70 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+71 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\photo-sphere-viewer\3.2.2\package\package.json written
+72 silly fetchNamedPackageData three
+73 silly mapToRegistry name three
+74 silly mapToRegistry using default registry
+75 silly mapToRegistry registry https://registry.npmjs.org/
+76 silly mapToRegistry data Result {
+76 silly mapToRegistry   raw: 'three',
+76 silly mapToRegistry   scope: null,
+76 silly mapToRegistry   escapedName: 'three',
+76 silly mapToRegistry   name: 'three',
+76 silly mapToRegistry   rawSpec: '',
+76 silly mapToRegistry   spec: 'latest',
+76 silly mapToRegistry   type: 'tag' }
+77 silly mapToRegistry uri https://registry.npmjs.org/three
+78 silly fetchNamedPackageData d.js
+79 silly mapToRegistry name d.js
+80 silly mapToRegistry using default registry
+81 silly mapToRegistry registry https://registry.npmjs.org/
+82 silly mapToRegistry data Result {
+82 silly mapToRegistry   raw: 'd.js',
+82 silly mapToRegistry   scope: null,
+82 silly mapToRegistry   escapedName: 'd.js',
+82 silly mapToRegistry   name: 'd.js',
+82 silly mapToRegistry   rawSpec: '',
+82 silly mapToRegistry   spec: 'latest',
+82 silly mapToRegistry   type: 'tag' }
+83 silly mapToRegistry uri https://registry.npmjs.org/d.js
+84 silly fetchNamedPackageData uevent
+85 silly mapToRegistry name uevent
+86 silly mapToRegistry using default registry
+87 silly mapToRegistry registry https://registry.npmjs.org/
+88 silly mapToRegistry data Result {
+88 silly mapToRegistry   raw: 'uevent',
+88 silly mapToRegistry   scope: null,
+88 silly mapToRegistry   escapedName: 'uevent',
+88 silly mapToRegistry   name: 'uevent',
+88 silly mapToRegistry   rawSpec: '',
+88 silly mapToRegistry   spec: 'latest',
+88 silly mapToRegistry   type: 'tag' }
+89 silly mapToRegistry uri https://registry.npmjs.org/uevent
+90 silly fetchOtherPackageData dot@github:olado/doT#master
+91 silly cache add args [ 'dot@github:olado/doT#master', null ]
+92 verbose cache add spec dot@github:olado/doT#master
+93 verbose request uri https://registry.npmjs.org/three
+94 verbose request no auth needed
+95 info attempt registry request try #1 at 3:53:21 PM
+96 http request GET https://registry.npmjs.org/three
+97 silly cache add parsed spec Result {
+97 silly cache add   raw: 'dot@github:olado/doT#master',
+97 silly cache add   scope: null,
+97 silly cache add   escapedName: 'dot',
+97 silly cache add   name: 'dot',
+97 silly cache add   rawSpec: 'github:olado/doT#master',
+97 silly cache add   spec: 'github:olado/doT#master',
+97 silly cache add   type: 'hosted',
+97 silly cache add   hosted:
+97 silly cache add    { type: 'github',
+97 silly cache add      ssh: 'git@github.com:olado/doT.git#master',
+97 silly cache add      sshUrl: 'git+ssh://git@github.com/olado/doT.git#master',
+97 silly cache add      httpsUrl: 'git+https://github.com/olado/doT.git#master',
+97 silly cache add      gitUrl: 'git://github.com/olado/doT.git#master',
+97 silly cache add      shortcut: 'github:olado/doT#master',
+97 silly cache add      directUrl: 'https://raw.githubusercontent.com/olado/doT/master/package.json' } }
+98 verbose addRemoteGit caching github:olado/doT#master
+99 verbose addRemoteGit olado/doT#master is a repository hosted by github
+100 silly tryGitProto attempting to clone git://github.com/olado/doT.git#master
+101 silly tryClone cloning olado/doT#master via git://github.com/olado/doT.git#master
+102 verbose tryClone git-github-com-olado-doT-git-master-63849856 not in flight; caching
+103 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes correctMkdir not in flight; initializing
+104 verbose makeDirectory C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes creation not in flight; initializing
+105 verbose makeCacheDir UID & GID are irrelevant on win32
+106 verbose request uri https://registry.npmjs.org/d.js
+107 verbose request no auth needed
+108 info attempt registry request try #1 at 3:53:21 PM
+109 http request GET https://registry.npmjs.org/d.js
+110 verbose request uri https://registry.npmjs.org/uevent
+111 verbose request no auth needed
+112 info attempt registry request try #1 at 3:53:21 PM
+113 http request GET https://registry.npmjs.org/uevent
+114 verbose git clone --template=C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror git://github.com/olado/doT.git C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\git-github-com-olado-doT-git-master-63849856: undefined
+114 verbose git clone --template=C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror git://github.com/olado/doT.git C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\git-github-com-olado-doT-git-master-63849856: undefined
+115 silly tryHTTPS attempting to clone git+https://github.com/olado/doT.git#master
+116 silly tryClone cloning olado/doT#master via git+https://github.com/olado/doT.git#master
+117 verbose tryClone git-https-github-com-olado-doT-git-master-bcdfdb4a not in flight; caching
+118 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes correctMkdir not in flight; initializing
+119 verbose git clone --template=C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror https://github.com/olado/doT.git C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-olado-doT-git-master-bcdfdb4a: undefined
+119 verbose git clone --template=C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror https://github.com/olado/doT.git C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-olado-doT-git-master-bcdfdb4a: undefined
+120 silly trySSH attempting to clone git@github.com:olado/doT.git#master
+121 silly tryClone cloning olado/doT#master via git@github.com:olado/doT.git#master
+122 verbose tryClone git-github-com-olado-doT-git-master-36cc3826 not in flight; caching
+123 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes correctMkdir not in flight; initializing
+124 error git clone --template=C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror git@github.com:olado/doT.git C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\git-github-com-olado-doT-git-master-36cc3826: undefined
+124 error git clone --template=C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror git@github.com:olado/doT.git C:\Users\ComputerGAP\AppData\Roaming\npm-cache\_git-remotes\git-github-com-olado-doT-git-master-36cc3826: undefined
+125 silly fetchPackageMetaData Error: not found: git
+125 silly fetchPackageMetaData     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+125 silly fetchPackageMetaData     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+125 silly fetchPackageMetaData     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+125 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:123:15)
+125 silly fetchPackageMetaData  error for dot@github:olado/doT#master { Error: not found: git
+125 silly fetchPackageMetaData     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+125 silly fetchPackageMetaData     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+125 silly fetchPackageMetaData     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+125 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+125 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:123:15) code: 'ENOGIT' }
+126 http 200 https://registry.npmjs.org/three
+127 verbose headers { server: 'nginx/1.10.1',
+127 verbose headers   'content-type': 'application/json',
+127 verbose headers   'last-modified': 'Tue, 24 Jan 2017 13:59:11 GMT',
+127 verbose headers   etag: 'W/"58875daf-2ec9f"',
+127 verbose headers   'content-encoding': 'gzip',
+127 verbose headers   'cache-control': 'max-age=300',
+127 verbose headers   'content-length': '14013',
+127 verbose headers   'accept-ranges': 'bytes',
+127 verbose headers   date: 'Thu, 02 Mar 2017 20:53:26 GMT',
+127 verbose headers   via: '1.1 varnish',
+127 verbose headers   age: '150',
+127 verbose headers   connection: 'keep-alive',
+127 verbose headers   'x-served-by': 'cache-ord1721-ORD',
+127 verbose headers   'x-cache': 'HIT',
+127 verbose headers   'x-cache-hits': '1',
+127 verbose headers   'x-timer': 'S1488488006.360540,VS0,VE0',
+127 verbose headers   vary: 'Accept-Encoding' }
+128 silly get cb [ 200,
+128 silly get   { server: 'nginx/1.10.1',
+128 silly get     'content-type': 'application/json',
+128 silly get     'last-modified': 'Tue, 24 Jan 2017 13:59:11 GMT',
+128 silly get     etag: 'W/"58875daf-2ec9f"',
+128 silly get     'content-encoding': 'gzip',
+128 silly get     'cache-control': 'max-age=300',
+128 silly get     'content-length': '14013',
+128 silly get     'accept-ranges': 'bytes',
+128 silly get     date: 'Thu, 02 Mar 2017 20:53:26 GMT',
+128 silly get     via: '1.1 varnish',
+128 silly get     age: '150',
+128 silly get     connection: 'keep-alive',
+128 silly get     'x-served-by': 'cache-ord1721-ORD',
+128 silly get     'x-cache': 'HIT',
+128 silly get     'x-cache-hits': '1',
+128 silly get     'x-timer': 'S1488488006.360540,VS0,VE0',
+128 silly get     vary: 'Accept-Encoding' } ]
+129 verbose get saving three to C:\Users\ComputerGAP\AppData\Roaming\npm-cache\registry.npmjs.org\three\.cache.json
+130 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+131 silly resolveWithNewModule three@0.84.0 checking installable status
+132 silly cache add args [ 'three@>= 0.70.0', null ]
+133 verbose cache add spec three@>= 0.70.0
+134 silly cache add parsed spec Result {
+134 silly cache add   raw: 'three@>= 0.70.0',
+134 silly cache add   scope: null,
+134 silly cache add   escapedName: 'three',
+134 silly cache add   name: 'three',
+134 silly cache add   rawSpec: '>= 0.70.0',
+134 silly cache add   spec: '>=0.70.0',
+134 silly cache add   type: 'range' }
+135 silly addNamed three@>=0.70.0
+136 verbose addNamed ">=0.70.0" is a valid semver range for three
+137 silly addNameRange { name: 'three', range: '>=0.70.0', hasData: false }
+138 silly mapToRegistry name three
+139 silly mapToRegistry using default registry
+140 silly mapToRegistry registry https://registry.npmjs.org/
+141 silly mapToRegistry data Result {
+141 silly mapToRegistry   raw: 'three',
+141 silly mapToRegistry   scope: null,
+141 silly mapToRegistry   escapedName: 'three',
+141 silly mapToRegistry   name: 'three',
+141 silly mapToRegistry   rawSpec: '',
+141 silly mapToRegistry   spec: 'latest',
+141 silly mapToRegistry   type: 'tag' }
+142 silly mapToRegistry uri https://registry.npmjs.org/three
+143 verbose addNameRange registry:https://registry.npmjs.org/three not in flight; fetching
+144 verbose get https://registry.npmjs.org/three not expired, no request
+145 silly addNameRange number 2 { name: 'three', range: '>=0.70.0', hasData: true }
+146 silly addNameRange versions [ 'three',
+146 silly addNameRange   [ '0.54.0-dev',
+146 silly addNameRange     '0.54.1-dev',
+146 silly addNameRange     '0.54.2-dev',
+146 silly addNameRange     '0.54.3-dev',
+146 silly addNameRange     '0.54.4-dev',
+146 silly addNameRange     '0.54.5-dev',
+146 silly addNameRange     '0.54.6-dev',
+146 silly addNameRange     '0.54.7-dev',
+146 silly addNameRange     '0.54.8-dev',
+146 silly addNameRange     '0.54.9-dev',
+146 silly addNameRange     '0.54.10-dev',
+146 silly addNameRange     '0.54.11-dev',
+146 silly addNameRange     '0.54.12-dev',
+146 silly addNameRange     '0.54.0',
+146 silly addNameRange     '0.55.0',
+146 silly addNameRange     '0.56.0',
+146 silly addNameRange     '0.56.1',
+146 silly addNameRange     '0.56.2',
+146 silly addNameRange     '0.56.3',
+146 silly addNameRange     '0.56.4',
+146 silly addNameRange     '0.58.1',
+146 silly addNameRange     '0.58.2',
+146 silly addNameRange     '0.58.3',
+146 silly addNameRange     '0.58.4',
+146 silly addNameRange     '0.58.5',
+146 silly addNameRange     '0.58.6',
+146 silly addNameRange     '0.56.7',
+146 silly addNameRange     '0.58.7',
+146 silly addNameRange     '0.58.8',
+146 silly addNameRange     '0.58.9',
+146 silly addNameRange     '0.58.10',
+146 silly addNameRange     '0.66.0',
+146 silly addNameRange     '0.66.1',
+146 silly addNameRange     '0.66.2',
+146 silly addNameRange     '0.67.0',
+146 silly addNameRange     '0.68.0',
+146 silly addNameRange     '0.66.6',
+146 silly addNameRange     '0.66.7',
+146 silly addNameRange     '0.66.8',
+146 silly addNameRange     '0.66.9',
+146 silly addNameRange     '0.66.10',
+146 silly addNameRange     '0.66.11',
+146 silly addNameRange     '0.66.12',
+146 silly addNameRange     '0.66.13',
+146 silly addNameRange     '0.66.14',
+146 silly addNameRange     '0.66.15',
+146 silly addNameRange     '0.66.16',
+146 silly addNameRange     '0.66.17',
+146 silly addNameRange     '0.66.18',
+146 silly addNameRange     '0.66.19',
+146 silly addNameRange     '0.69.0',
+146 silly addNameRange     '0.66.20',
+146 silly addNameRange     '0.66.21',
+146 silly addNameRange     '0.66.22',
+146 silly addNameRange     '0.66.23',
+146 silly addNameRange     '0.66.24',
+146 silly addNameRange     '0.66.25',
+146 silly addNameRange     '0.66.26',
+146 silly addNameRange     '0.66.27',
+146 silly addNameRange     '0.66.28',
+146 silly addNameRange     '0.66.29',
+146 silly addNameRange     '0.66.30',
+146 silly addNameRange     '0.66.31',
+146 silly addNameRange     '0.66.32-dev',
+146 silly addNameRange     '0.66.35',
+146 silly addNameRange     '0.66.36',
+146 silly addNameRange     '0.66.37',
+146 silly addNameRange     '0.66.38',
+146 silly addNameRange     '0.66.39',
+146 silly addNameRange     '0.66.40',
+146 silly addNameRange     '0.70.0',
+146 silly addNameRange     '0.66.41',
+146 silly addNameRange     '0.66.42',
+146 silly addNameRange     '0.66.43',
+146 silly addNameRange     '0.66.45',
+146 silly addNameRange     '0.66.46',
+146 silly addNameRange     '0.66.47',
+146 silly addNameRange     '0.66.48',
+146 silly addNameRange     '0.66.49',
+146 silly addNameRange     '0.66.50',
+146 silly addNameRange     '0.66.51',
+146 silly addNameRange     '0.66.52',
+146 silly addNameRange     '0.66.53',
+146 silly addNameRange     '0.66.54',
+146 silly addNameRange     '0.66.55',
+146 silly addNameRange     '0.66.56',
+146 silly addNameRange     '0.66.57',
+146 silly addNameRange     '0.66.58',
+146 silly addNameRange     '0.66.59',
+146 silly addNameRange     '0.66.60',
+146 silly addNameRange     '0.66.61',
+146 silly addNameRange     '0.66.62',
+146 silly addNameRange     '0.66.63',
+146 silly addNameRange     '0.71.0',
+146 silly addNameRange     '0.70.1',
+146 silly addNameRange     '0.66.64',
+146 silly addNameRange     '0.66.65',
+146 silly addNameRange     '0.66.66',
+146 silly addNameRange     '0.66.67',
+146 silly addNameRange     '0.66.68',
+146 silly addNameRange     ... 52 more items ] ]
+147 silly addNamed three@0.84.0
+148 verbose addNamed "0.84.0" is a plain semver version for three
+149 silly mapToRegistry name three
+150 silly mapToRegistry using default registry
+151 silly mapToRegistry registry https://registry.npmjs.org/
+152 silly mapToRegistry data Result {
+152 silly mapToRegistry   raw: 'three',
+152 silly mapToRegistry   scope: null,
+152 silly mapToRegistry   escapedName: 'three',
+152 silly mapToRegistry   name: 'three',
+152 silly mapToRegistry   rawSpec: '',
+152 silly mapToRegistry   spec: 'latest',
+152 silly mapToRegistry   type: 'tag' }
+153 silly mapToRegistry uri https://registry.npmjs.org/three
+154 verbose addRemoteTarball https://registry.npmjs.org/three/-/three-0.84.0.tgz not in flight; adding
+155 verbose addRemoteTarball [ 'https://registry.npmjs.org/three/-/three-0.84.0.tgz',
+155 verbose addRemoteTarball   '95be85a55a0fa002aa625ed559130957dcffd918' ]
+156 info retry fetch attempt 1 at 3:53:21 PM
+157 info attempt registry request try #1 at 3:53:21 PM
+158 http fetch GET https://registry.npmjs.org/three/-/three-0.84.0.tgz
+159 http fetch 200 https://registry.npmjs.org/three/-/three-0.84.0.tgz
+160 http 200 https://registry.npmjs.org/uevent
+161 verbose headers { server: 'nginx/1.10.1',
+161 verbose headers   'content-type': 'application/json',
+161 verbose headers   'last-modified': 'Wed, 16 Nov 2016 06:36:59 GMT',
+161 verbose headers   etag: 'W/"582bfe8b-203a"',
+161 verbose headers   'content-encoding': 'gzip',
+161 verbose headers   'cache-control': 'max-age=300',
+161 verbose headers   'content-length': '3143',
+161 verbose headers   'accept-ranges': 'bytes',
+161 verbose headers   date: 'Thu, 02 Mar 2017 20:53:26 GMT',
+161 verbose headers   via: '1.1 varnish',
+161 verbose headers   age: '0',
+161 verbose headers   connection: 'keep-alive',
+161 verbose headers   'x-served-by': 'cache-ord1743-ORD',
+161 verbose headers   'x-cache': 'MISS',
+161 verbose headers   'x-cache-hits': '0',
+161 verbose headers   'x-timer': 'S1488488006.577941,VS0,VE39',
+161 verbose headers   vary: 'Accept-Encoding' }
+162 silly get cb [ 200,
+162 silly get   { server: 'nginx/1.10.1',
+162 silly get     'content-type': 'application/json',
+162 silly get     'last-modified': 'Wed, 16 Nov 2016 06:36:59 GMT',
+162 silly get     etag: 'W/"582bfe8b-203a"',
+162 silly get     'content-encoding': 'gzip',
+162 silly get     'cache-control': 'max-age=300',
+162 silly get     'content-length': '3143',
+162 silly get     'accept-ranges': 'bytes',
+162 silly get     date: 'Thu, 02 Mar 2017 20:53:26 GMT',
+162 silly get     via: '1.1 varnish',
+162 silly get     age: '0',
+162 silly get     connection: 'keep-alive',
+162 silly get     'x-served-by': 'cache-ord1743-ORD',
+162 silly get     'x-cache': 'MISS',
+162 silly get     'x-cache-hits': '0',
+162 silly get     'x-timer': 'S1488488006.577941,VS0,VE39',
+162 silly get     vary: 'Accept-Encoding' } ]
+163 verbose get saving uevent to C:\Users\ComputerGAP\AppData\Roaming\npm-cache\registry.npmjs.org\uevent\.cache.json
+164 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+165 silly resolveWithNewModule uevent@1.0.0 checking installable status
+166 silly cache add args [ 'uevent@~1.0.0', null ]
+167 verbose cache add spec uevent@~1.0.0
+168 silly cache add parsed spec Result {
+168 silly cache add   raw: 'uevent@~1.0.0',
+168 silly cache add   scope: null,
+168 silly cache add   escapedName: 'uevent',
+168 silly cache add   name: 'uevent',
+168 silly cache add   rawSpec: '~1.0.0',
+168 silly cache add   spec: '>=1.0.0 <1.1.0',
+168 silly cache add   type: 'range' }
+169 silly addNamed uevent@>=1.0.0 <1.1.0
+170 verbose addNamed ">=1.0.0 <1.1.0" is a valid semver range for uevent
+171 silly addNameRange { name: 'uevent', range: '>=1.0.0 <1.1.0', hasData: false }
+172 silly mapToRegistry name uevent
+173 silly mapToRegistry using default registry
+174 silly mapToRegistry registry https://registry.npmjs.org/
+175 silly mapToRegistry data Result {
+175 silly mapToRegistry   raw: 'uevent',
+175 silly mapToRegistry   scope: null,
+175 silly mapToRegistry   escapedName: 'uevent',
+175 silly mapToRegistry   name: 'uevent',
+175 silly mapToRegistry   rawSpec: '',
+175 silly mapToRegistry   spec: 'latest',
+175 silly mapToRegistry   type: 'tag' }
+176 silly mapToRegistry uri https://registry.npmjs.org/uevent
+177 verbose addNameRange registry:https://registry.npmjs.org/uevent not in flight; fetching
+178 verbose get https://registry.npmjs.org/uevent not expired, no request
+179 silly addNameRange number 2 { name: 'uevent', range: '>=1.0.0 <1.1.0', hasData: true }
+180 silly addNameRange versions [ 'uevent', [ '1.0.0' ] ]
+181 silly addNamed uevent@1.0.0
+182 verbose addNamed "1.0.0" is a plain semver version for uevent
+183 silly mapToRegistry name uevent
+184 silly mapToRegistry using default registry
+185 silly mapToRegistry registry https://registry.npmjs.org/
+186 silly mapToRegistry data Result {
+186 silly mapToRegistry   raw: 'uevent',
+186 silly mapToRegistry   scope: null,
+186 silly mapToRegistry   escapedName: 'uevent',
+186 silly mapToRegistry   name: 'uevent',
+186 silly mapToRegistry   rawSpec: '',
+186 silly mapToRegistry   spec: 'latest',
+186 silly mapToRegistry   type: 'tag' }
+187 silly mapToRegistry uri https://registry.npmjs.org/uevent
+188 verbose addRemoteTarball https://registry.npmjs.org/uevent/-/uevent-1.0.0.tgz not in flight; adding
+189 verbose addRemoteTarball [ 'https://registry.npmjs.org/uevent/-/uevent-1.0.0.tgz',
+189 verbose addRemoteTarball   '2948a2d441d179000470e21aed126c67b000976c' ]
+190 info retry fetch attempt 1 at 3:53:21 PM
+191 info attempt registry request try #1 at 3:53:21 PM
+192 http fetch GET https://registry.npmjs.org/uevent/-/uevent-1.0.0.tgz
+193 http 200 https://registry.npmjs.org/d.js
+194 verbose headers { server: 'nginx/1.10.1',
+194 verbose headers   'content-type': 'application/json',
+194 verbose headers   'last-modified': 'Wed, 27 Jul 2016 09:07:28 GMT',
+194 verbose headers   etag: 'W/"579879d0-72dc"',
+194 verbose headers   'content-encoding': 'gzip',
+194 verbose headers   'cache-control': 'max-age=300',
+194 verbose headers   'content-length': '5878',
+194 verbose headers   'accept-ranges': 'bytes',
+194 verbose headers   date: 'Thu, 02 Mar 2017 20:53:26 GMT',
+194 verbose headers   via: '1.1 varnish',
+194 verbose headers   age: '0',
+194 verbose headers   connection: 'keep-alive',
+194 verbose headers   'x-served-by': 'cache-ord1739-ORD',
+194 verbose headers   'x-cache': 'MISS',
+194 verbose headers   'x-cache-hits': '0',
+194 verbose headers   'x-timer': 'S1488488006.602245,VS0,VE139',
+194 verbose headers   vary: 'Accept-Encoding' }
+195 silly get cb [ 200,
+195 silly get   { server: 'nginx/1.10.1',
+195 silly get     'content-type': 'application/json',
+195 silly get     'last-modified': 'Wed, 27 Jul 2016 09:07:28 GMT',
+195 silly get     etag: 'W/"579879d0-72dc"',
+195 silly get     'content-encoding': 'gzip',
+195 silly get     'cache-control': 'max-age=300',
+195 silly get     'content-length': '5878',
+195 silly get     'accept-ranges': 'bytes',
+195 silly get     date: 'Thu, 02 Mar 2017 20:53:26 GMT',
+195 silly get     via: '1.1 varnish',
+195 silly get     age: '0',
+195 silly get     connection: 'keep-alive',
+195 silly get     'x-served-by': 'cache-ord1739-ORD',
+195 silly get     'x-cache': 'MISS',
+195 silly get     'x-cache-hits': '0',
+195 silly get     'x-timer': 'S1488488006.602245,VS0,VE139',
+195 silly get     vary: 'Accept-Encoding' } ]
+196 verbose get saving d.js to C:\Users\ComputerGAP\AppData\Roaming\npm-cache\registry.npmjs.org\d.js\.cache.json
+197 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+198 silly resolveWithNewModule d.js@0.7.5 checking installable status
+199 silly cache add args [ 'd.js@~0.7.3', null ]
+200 verbose cache add spec d.js@~0.7.3
+201 silly cache add parsed spec Result {
+201 silly cache add   raw: 'd.js@~0.7.3',
+201 silly cache add   scope: null,
+201 silly cache add   escapedName: 'd.js',
+201 silly cache add   name: 'd.js',
+201 silly cache add   rawSpec: '~0.7.3',
+201 silly cache add   spec: '>=0.7.3 <0.8.0',
+201 silly cache add   type: 'range' }
+202 silly addNamed d.js@>=0.7.3 <0.8.0
+203 verbose addNamed ">=0.7.3 <0.8.0" is a valid semver range for d.js
+204 silly addNameRange { name: 'd.js', range: '>=0.7.3 <0.8.0', hasData: false }
+205 silly mapToRegistry name d.js
+206 silly mapToRegistry using default registry
+207 silly mapToRegistry registry https://registry.npmjs.org/
+208 silly mapToRegistry data Result {
+208 silly mapToRegistry   raw: 'd.js',
+208 silly mapToRegistry   scope: null,
+208 silly mapToRegistry   escapedName: 'd.js',
+208 silly mapToRegistry   name: 'd.js',
+208 silly mapToRegistry   rawSpec: '',
+208 silly mapToRegistry   spec: 'latest',
+208 silly mapToRegistry   type: 'tag' }
+209 silly mapToRegistry uri https://registry.npmjs.org/d.js
+210 verbose addNameRange registry:https://registry.npmjs.org/d.js not in flight; fetching
+211 verbose get https://registry.npmjs.org/d.js not expired, no request
+212 silly addNameRange number 2 { name: 'd.js', range: '>=0.7.3 <0.8.0', hasData: true }
+213 silly addNameRange versions [ 'd.js',
+213 silly addNameRange   [ '0.1.0',
+213 silly addNameRange     '0.2.0',
+213 silly addNameRange     '0.2.1',
+213 silly addNameRange     '0.2.2',
+213 silly addNameRange     '0.2.3',
+213 silly addNameRange     '0.2.4',
+213 silly addNameRange     '0.2.5',
+213 silly addNameRange     '0.2.6',
+213 silly addNameRange     '0.3.0',
+213 silly addNameRange     '0.5.0',
+213 silly addNameRange     '0.5.1',
+213 silly addNameRange     '0.5.2',
+213 silly addNameRange     '0.6.0',
+213 silly addNameRange     '0.7.0',
+213 silly addNameRange     '0.7.1',
+213 silly addNameRange     '0.7.2',
+213 silly addNameRange     '0.7.3',
+213 silly addNameRange     '0.7.4',
+213 silly addNameRange     '0.7.5' ] ]
+214 silly addNamed d.js@0.7.5
+215 verbose addNamed "0.7.5" is a plain semver version for d.js
+216 silly mapToRegistry name d.js
+217 silly mapToRegistry using default registry
+218 silly mapToRegistry registry https://registry.npmjs.org/
+219 silly mapToRegistry data Result {
+219 silly mapToRegistry   raw: 'd.js',
+219 silly mapToRegistry   scope: null,
+219 silly mapToRegistry   escapedName: 'd.js',
+219 silly mapToRegistry   name: 'd.js',
+219 silly mapToRegistry   rawSpec: '',
+219 silly mapToRegistry   spec: 'latest',
+219 silly mapToRegistry   type: 'tag' }
+220 silly mapToRegistry uri https://registry.npmjs.org/d.js
+221 verbose addRemoteTarball https://registry.npmjs.org/d.js/-/d.js-0.7.5.tgz not in flight; adding
+222 verbose addRemoteTarball [ 'https://registry.npmjs.org/d.js/-/d.js-0.7.5.tgz',
+222 verbose addRemoteTarball   '06e8b8c4f6ae979c4b817c321894ce2e1f5fa90e' ]
+223 info retry fetch attempt 1 at 3:53:21 PM
+224 info attempt registry request try #1 at 3:53:21 PM
+225 http fetch GET https://registry.npmjs.org/d.js/-/d.js-0.7.5.tgz
+226 http fetch 200 https://registry.npmjs.org/uevent/-/uevent-1.0.0.tgz
+227 silly fetchAndShaCheck shasum 2948a2d441d179000470e21aed126c67b000976c
+228 verbose addTmpTarball C:\Users\COMPUT~1\AppData\Local\Temp\npm-76072-b8fdda8b\registry.npmjs.org\uevent\-\uevent-1.0.0.tgz not in flight; adding
+229 verbose addTmpTarball already have metadata; skipping unpack for uevent@1.0.0
+230 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+231 silly cache afterAdd uevent@1.0.0
+232 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\uevent\1.0.0\package\package.json not in flight; writing
+233 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+234 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\uevent\1.0.0\package\package.json written
+235 silly fetchAndShaCheck shasum 95be85a55a0fa002aa625ed559130957dcffd918
+236 verbose addTmpTarball C:\Users\COMPUT~1\AppData\Local\Temp\npm-76072-b8fdda8b\registry.npmjs.org\three\-\three-0.84.0.tgz not in flight; adding
+237 verbose addTmpTarball already have metadata; skipping unpack for three@0.84.0
+238 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+239 silly cache afterAdd three@0.84.0
+240 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\three\0.84.0\package\package.json not in flight; writing
+241 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+242 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\three\0.84.0\package\package.json written
+243 http fetch 200 https://registry.npmjs.org/d.js/-/d.js-0.7.5.tgz
+244 silly fetchAndShaCheck shasum 06e8b8c4f6ae979c4b817c321894ce2e1f5fa90e
+245 verbose addTmpTarball C:\Users\COMPUT~1\AppData\Local\Temp\npm-76072-b8fdda8b\registry.npmjs.org\d.js\-\d.js-0.7.5.tgz not in flight; adding
+246 verbose addTmpTarball already have metadata; skipping unpack for d.js@0.7.5
+247 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+248 silly cache afterAdd d.js@0.7.5
+249 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\d.js\0.7.5\package\package.json not in flight; writing
+250 verbose correctMkdir C:\Users\ComputerGAP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+251 verbose afterAdd C:\Users\ComputerGAP\AppData\Roaming\npm-cache\d.js\0.7.5\package\package.json written
+252 silly rollbackFailedOptional Starting
+253 silly rollbackFailedOptional Finishing
+254 silly runTopLevelLifecycles Finishing
+255 silly install printInstalled
+256 verbose stack Error: not found: git
+256 verbose stack     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+256 verbose stack     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+256 verbose stack     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+256 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+256 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+256 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+256 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+256 verbose stack     at FSReqWrap.oncomplete (fs.js:123:15)
+257 verbose cwd C:\Src\marcohern.com\blog\blog.marcohern.com\blog\public
+258 error Windows_NT 10.0.14393
+259 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "photo-sphere-viewer"
+260 error node v6.10.0
+261 error npm  v3.10.10
+262 error code ENOGIT
+263 error not found: git
+264 error Failed using git.
+264 error This is most likely not a problem with npm itself.
+264 error Please check if you have git installed and in your PATH.
+265 verbose exit [ 1, true ]

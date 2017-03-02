@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Test</title>
+		<link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.17.1.css">
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<div id="qunit-fixture">
+			<ul class="list">
+				<li>One</li>
+				<li>Two</li>
+				<li><strong>Three</strong></li>
+			</ul>
+		</div>
+
+		<script src="//code.jquery.com/qunit/qunit-1.17.1.js"></script>
+		<script type="text/javascript" src="../d.js"></script>
+
+		<script type="text/javascript">
+			QUnit.test(".get", function (assert) {
+				assert.strictEqual(d.get('.list > li'), document.querySelector('.list > li'), "Passed!");
+				assert.strictEqual(d.get('ol.list > li'), null, "Passed!");
+			});
+
+			QUnit.test(".getAll", function (assert) {
+				assert.strictEqual(d.getAll('.list > li').length, 3, "Passed!");
+				assert.strictEqual(d.getAll('ol.list > li').length, 0, "Passed!");
+				assert.strictEqual(d('.list > li').length, 3, "Passed!");
+			});
+
+			QUnit.test("types", function (assert) {
+				var elements = d.getAll('.list > li');
+				assert.strictEqual(d.get(elements), elements[0]);
+				assert.strictEqual(d.get('.list > li'), elements[0]);
+				assert.strictEqual(d.get(d('.list > li')), elements[0]);
+				assert.strictEqual(d.get(d('.list > li')), d('.list > li')[0]);
+			});
+
+			QUnit.test(".is", function (assert) {
+				var element = d.get('.list > li');
+
+				assert.strictEqual(d.is(element, 'li'), true, "Passed!");
+				assert.strictEqual(d.is(element, 'p'), false, "Passed!");
+			});
+
+			QUnit.test(".remove", function (assert) {
+				//empty result
+				d.remove('.not-found');
+				
+				assert.strictEqual(d.getAll('.list > li').length, 3, "Passed!");
+
+				d.remove(d.get('.list > li'));
+
+				assert.strictEqual(d.getAll('.list > li').length, 2, "Passed!");
+			});
+
+			QUnit.test(".css", function (assert) {
+				//empty result
+				d.css('.not-found', 'margin', 'auto');
+
+				var elements = d.getAll('.list > li');
+
+				assert.strictEqual(d.css(elements[0], 'margin-left'), '0px', "Passed!");
+
+				d.css(elements, 'margin-left', '10px');
+				d.css(elements, {
+					fontFamily: 'Arial',
+					color: ['red', 'blue'],
+					fontSize: function (el, index) {
+						return (10 + index) + 'px';
+					}
+				});
+
+				assert.strictEqual(d.css(elements[0], 'margin-left'), '10px', "Passed!");
+				assert.strictEqual(d.css(elements[0], 'font-family'), 'Arial', "Passed!");
+				assert.strictEqual(d.css(elements[1], 'font-family'), 'Arial', "Passed!");
+				assert.strictEqual(d.css(elements[0], 'color'), 'rgb(255, 0, 0)', "Passed!");
+				assert.strictEqual(d.css(elements[1], 'color'), 'rgb(0, 0, 255)', "Passed!");
+				assert.strictEqual(d.css(elements[2], 'color'), 'rgb(255, 0, 0)', "Passed!");
+				assert.strictEqual(d.css(elements[0], 'fontSize'), '10px', "Passed!");
+				assert.strictEqual(d.css(elements[1], 'fontSize'), '11px', "Passed!");
+				assert.strictEqual(d.css(elements[2], 'fontSize'), '12px', "Passed!");
+			});
+
+			QUnit.test(".parse", function (assert) {
+				var element = d.parse('<ol><li></li></ol>');
+
+				assert.strictEqual(d.is(element, 'ol'), true, "Passed!");
+				assert.strictEqual(element.children.length, 1, "Passed!");
+
+				element = d('<ol><li></li></ol>');
+				assert.strictEqual(d.is(element[0], 'ol'), true, "Passed!");
+				assert.strictEqual(element[0].children.length, 1, "Passed!");
+			});
+
+			QUnit.test("events", function (assert) {
+				var element = d('<div></div>');
+				var clicked = false;
+				var fn = function () {
+					clicked = true;
+				};
+
+				d.on('click', '.not-found', fn);
+
+				element.on('click', fn);
+
+				element.trigger('click');
+				assert.strictEqual(clicked, true, "Passed!");
+				clicked = false;
+
+				element.off('click', fn);
+				element.trigger('click');
+				assert.strictEqual(clicked, false, "Passed!");
+
+				element.on('customClick', fn);
+
+				element.trigger('customClick');
+				assert.strictEqual(clicked, true, "Passed!");
+				clicked = false;
+
+				element.off('customClick', fn);
+				element.trigger('customClick');
+				assert.strictEqual(clicked, false, "Passed!");
+			});
+
+			QUnit.test(".append", function (assert) {
+				d.append('.not-found', '<p>zero</p>');
+
+				var element = d.parse('<div></div>');
+
+				assert.strictEqual(0, element.children.length);
+
+				d.append(element, '<p>one</p>');
+				d.append(element, '<p>two</p>');
+				d.append(element, '<p>three</p>');
+
+				assert.strictEqual(3, element.children.length);
+				assert.strictEqual('one', element.children[0].innerText);
+			});
+
+			QUnit.test(".prepend", function (assert) {
+				d.prepend('.not-found', '<p>zero</p>');
+
+				var element = d.parse('<div></div>');
+
+				assert.strictEqual(0, element.children.length);
+
+				d.prepend(element, '<p>three</p>');
+				d.prepend(element, '<p>two</p>');
+				d.prepend(element, '<p>one</p>');
+
+				assert.strictEqual(3, element.children.length);
+				assert.strictEqual('one', element.children[0].innerText);
+			});
+
+			QUnit.test(".insertBefore", function (assert) {
+				d.insertBefore('.not-found', '<p>zero</p>');
+
+				var element = d.parse('<div><p>two</p></div>');
+
+				assert.strictEqual(1, element.children.length);
+
+				d.insertBefore(element.children[0], '<p>one</p>');
+
+				assert.strictEqual(2, element.children.length);
+				assert.strictEqual('one', element.children[0].innerText);
+			});
+
+			QUnit.test(".insertAfter", function (assert) {
+				d.insertAfter('.not-found', '<p>zero</p>');
+
+				var element = d.parse('<div><p>two</p></div>');
+
+				assert.strictEqual(1, element.children.length);
+
+				d.insertAfter(element.children[0], '<p>three</p>');
+
+				assert.strictEqual(2, element.children.length);
+				assert.strictEqual('three', element.children[1].innerText);
+			});
+		</script>
+	</body>
+</html>
