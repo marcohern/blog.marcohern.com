@@ -1,0 +1,355 @@
+<p>Convertir de números romanos a decimales es un poco más difícil que hacerlo de decimales a romanos. Esto es por 2 razones importantes:</p>
+
+<ol>
+	<li><strong>Múltiples caracteres deben ser interpretados para determinar que dígito representa.</strong> Por ejemplo, si encuentras una X, quizás estés inclinado por asumir que se trata del número 10, pero eso no es cierto, porque podría haber otra X luego, haciendo que el número sea un 20. Es más, si hay otra X luego, quiere decir que es un 30.</li>
+	<li><strong>LLa condición final para un dígito decimal que se está convirtiendo de un número romano es, o bien, fin de cadena, o si el siguiente dígito no corresponde a la secuencia.</strong> Esto es un poco complicado de explicar, pero probemos. Significa que si, por ejemplo, XXIII (23), que tiene 2 dígitos: ZZ (2) y III (3), entonces lees hasta la segunda X, en la cual, te das cuenta de que el valor es por lo menos, 20, pero podría ser un 30, no lo sabras hasta que leas el siguiente carácter, y cuando encuentras una I, allí es que ya puedes asumir un 20 con seguridad y sumar el siguiente dígito.</li>
+</ol>
+
+<p>La naturaleza más complicada de la solución requerida para resolver este problema, inicialmente tuvo mi cerebro pensando en varias soluciones:</p>
+
+<ol type="1">
+	<li>
+	<strong>Solución con Tries:</strong> Como lo implica el nombre, se trata de utilizar <a target="_blank" href="https://es.wikipedia.org/wiki/Trie">Tries</a>, o arboles de búsquedas de palabras. Para este caso, usaríamos el trie para almacenar cada uno de los números romanos rápidamente. Desarrollé dos variantes:
+		<ol type="a">
+			<li><strong>La super trie:</strong> Lo llamo así porque se trata de un árbol de búsqueda que contiene absolutamente todos los números romanos con sus valores, resultando en un árbol con un total de 4000 nodos, donde cada nodo contiene el valor correspondiente en decimal. Es bastante eficiente, pero solo porque no hay más de 3999 números romanos. Si hubiera más, o fueran infinitos, esta solución no seria ideal.</li>
+			<li><strong>El trie bien conectado:</strong> Se trata de crear 4 Tries (dígitos, dieces, cientos y miles) y conectarlos estratégicamente para poder interpretar números romanos sin consumir tanto espacio en memoria. Cada árbol tendría hasta 10 nodos, así que solo se necesitarían menos de 40 nodos para que toda la estructura funcione.</li>
+		</ol>
+	</li>
+	<li><strong>Algoritmo de interpretación:</strong> Diseñé un algoritmo que lee el número romano y lo interpreta directamente.</li>
+</ol>
+
+<p>Así que, con el fin de no complicarnos por ahora, les mostraré el algoritmo para interpretar un número romano de la manera más simple que he descubierto, aprovechando las ventajas y limitaciones de estos.</p>
+
+<h2>Antes de empezar</h2>
+
+<p>El lenguaje de programación para este ejercicio será C++. Debería ser muy fácil de portar a cualquier otro lenguaje popular como Java o C#.</p>
+
+<p>Ya hemos establecido el conocimiento sobre los números romanos. Puedes leer mi <a href="/en/converting-integers-to-roman-numerals">articulo anterior</a>, que contiene detalles sobre como comprender los números romanos. También puedes leer la <a href="https://es.wikipedia.org/wiki/Numeraci%C3%B3n_romana">página de Wikipedia</a> sobre números romanos.</p>
+
+<p>Por ahora, aquí tienen la tabla que nos permite convertir de números decimales a números romanos y viceversa:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Dígito</th>
+			<th>10<sup>3</sup></th>
+			<th>10<sup>2</sup></th>
+			<th>10<sup>1</sup></th>
+			<th>10<sup>0</sup></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>0</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr>
+			<th>1</th><td>M</td><td>C</td><td>X</td><td>I</td>
+		</tr>
+		<tr>
+			<th>2</th><td>MM</td><td>CC</td><td>XX</td><td>II</td>
+		</tr>
+		<tr>
+			<th>3</th><td>MMM</td><td>CCC</td><td>XXX</td><td>III</td>
+		</tr>
+		<tr>
+			<th>4</th><td></td><td>CD</td><td>XL</td><td>IV</td>
+		</tr>
+		<tr>
+			<th>5</th><td></td><td>D</td><td>L</td><td>V</td>
+		</tr>
+		<tr>
+			<th>6</th><td></td><td>DC</td><td>LX</td><td>VI</td>
+		</tr>
+		<tr>
+			<th>7</th><td></td><td>DCC</td><td>LXX</td><td>VII</td>
+		</tr>
+		<tr>
+			<th>8</th><td></td><td>DCCC</td><td>LXXX</td><td>VIII</td>
+		</tr>
+		<tr>
+			<th>9</th><td></td><td>CM</td><td>XC</td><td>IX</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Convirtiendo el primer dígito de romano a decimal</h2>
+
+<p>Empecemos por mostrar un código para interpretar solo los números romanos del 1 al 9, conocido como el dígito menos significativo:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+public:
+	int romanToInt(const int &amp;i, const string &amp;r);
+};
+
+//Roman.cpp
+int Roman::romanToInt(const int &amp;i, const string &amp;r) {
+	if (i==r.size()) return 0;
+	else {
+		if (r[i] == 'I') {
+			i++;
+			if (i==r.size()) return 1;
+			else if (r[i]=='V') return 4;
+			else if (r[i]=='X') return 9;
+			else return 1 + romanToInt(i, r); 
+		} else if (r[i]=='V') {
+			i++;
+			return 5 + romanToInt(i, r);
+		}
+		else return 0;
+	}
+}
+</code></pre>
+
+<p>Muy bien, entonces ¿Qué fue eso?, veamos, hay una clase llamada Roman que encapsulará al algoritmo (es tan solo diseño de POO, muy estético), que tiene un método <strong>romanToInt</strong>, encargado de convertir los números romanos desde I (1) hasta IX (9), a su equivalente decimal. Nótese que el método se llama a sí mismo en algunas ocasiones, pronto examinaremos eso.</p>
+
+<p>¿Cómo logra interpretar números romanos?, lo que se quiere es intentar leer una sola letra y convertirlo rápidamente a su equivalente decimal, y luego sumarlo al siguiente, sin importar la secuencia. Por ejemplo, si encuentro una 'I', entonces retornaría un 1, si encuentro una 'V', retornaría un 5. Esto funciona bien a excepción de los casos especiales, que son IV (4) y IX (9), para esos casos debemos simplemente estar atentos y retornar el valor requerido, pero para el resto de símbolos, retornamos un valor especifico.</p>
+
+<p>Ahora, nótese que llamamos al mismo método recursivamente. Es simplemente la manera en que continuamos la interpretación del número romano. Por ejemplo, si encontramos una I, el resultado seria 1 + lo que sigue después, que podría ser otra I, o bien, 2 I's adicionales. Igualmente ocurre con el V (5), ejemplo, VII (7), es igual a 5 + lo que sigue (2).</p>
+
+<h2>Añadiendo soporte para convertir todos los números romanos</h2>
+
+<p>Ahora que hemos visto código simple para los primeros 9 números romanos, vamos a añadir código para incluir el resto. Para ello, primero debemos añadir una tabla que nos indicara que símbolo corresponde dependiendo de la posición del número romano en la cual nos encontremos:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>índice</th>
+			<th>i</th>
+			<th>v</th>
+			<th>x</th>
+			<th>mult</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>0</th>
+			<td>I</td>
+			<td>V</td>
+			<td>X</td>
+			<td>10<sup>0</sup></td>
+		</tr>
+		<tr>
+			<th>1</th>
+			<td>X</td>
+			<td>L</td>
+			<td>C</td>
+			<td>10<sup>1</sup></td>
+		</tr>
+		<tr>
+			<th>2</th>
+			<td>C</td>
+			<td>D</td>
+			<td>M</td>
+			<td>10<sup>2</sup></td>
+		</tr>
+		<tr>
+			<th>3</th>
+			<td>M</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>10<sup>3</sup></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>La tabla no solo representa las letras que vamos a utilizar para interpretar el número romano, sino también nos revela por qué factor se debe multiplicar dicho número para hallar el valor correcto, que suele ser una potencia de 10. Coincidencialmente, el índice natural de la tabla (columna índice) corresponde al exponente. Así que podremos crear un simple vector para almacenar las letras y asegurar que el índice corresponda al exponente y así saber por qué potencia de 10 multiplicar dependiendo de que letras se están interpretando.</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+	//...
+
+private:
+	static vector&lt;string&gt; letters;
+	
+	//...	
+};
+
+//Roman.cpp
+//...
+
+vector&lt;string&gt; Roman::letters = {
+//	0      1      2      3
+	"IVX", "XLC", "CDM", "M  "
+};
+
+//...
+</code></pre>
+
+<p>Ahora, con esta pequeña tabla de caracteres, podemos interpretar los números romanos sin importar en que posición nos encuentra, solo debemos proveer el exponente correcto. Por ahora, modifiquemos el código para incluir el uso de la tabla y el exponente. Crearemos un método llamado <strong>seqValues</strong> para interpretar el número romano con los parametros apropiados.</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+private:
+	static vector&lt;string&gt; letters;
+	int seqValues(const int &amp;i, const string &amp;r, int li);
+	//...
+};
+
+//Roman.cpp
+<strong>
+int Roman::seqValues(const int &amp;i, const string &amp;r, int li) {
+	if (i==r.size()) return 0;
+	else if (li &lt; 0) return 0;
+	else {
+		if (r[i] == letters[li][0]) {
+			i++;
+			if (i==r.size()) return pow(10,li);
+			else if (r[i]==letters[li][1]) {
+				i++;
+				return 4*pow(10,li) + seqValues(i,r, li-1);
+			} else if (r[i]==letters[li][2]) {
+				i++;
+				return 9*pow(10,li) + seqValues(i,r, li-1);
+			} else {
+				i++;
+				return pow(10,li) + seqValues(i, r, li); 
+			}
+		} else if (r[i]==letters[li][1]) {
+			i++;
+			return 5*pow(10,li) + seqValues(i, r, li);
+		}
+		else return seqValues(i, r, li-1);
+	}
+}
+</strong>
+</code></pre>
+
+<p>Entonces, ¿Qué ha cambiado? Bien, primero que todo, ahora estamos comparando contra la tabla de letras en vez de las letras en sí. Estas letras cambian según el exponente así que eso ya queda resuelto. La variable li representa el exponente y las letras correspondientes. Previamente retornaríamos un número (1, 4, 9 o 5) dependiendo de la letra que encontramos, pero ahora vamos a retornar el mismo número multiplicado por 10<sup>li</sup>. Adicionalmente, nótese que ahora hacemos más llamados recursivos al método <strong>seqValues</strong> (sumándolo a 4, a 9, y en el último else), estas llamadas representan al hecho de que, al encontrar un 4 o un 9, automáticamente sabemos que lo que sigue corresponde a otro dígito (otra potencia de 10), así que podemos retornar el valor y continuar con el siguiente dígito. Para el caso en que no encontremos un símbolo que no corresponde al exponente actual, simplemente detenemos y nuevamente retornamos el valor actual y continuamos con el siguiente exponente.</p>
+
+<h2>Exponiendo el método.</h2>
+
+<p>Hecho todo esto, ahora lo que sigue es exponer el método público para que se pueda invocar desde el punto de entrada:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+private:
+    static vector&lt;string&gt; letters;
+    int seqValue(int &amp;i, const string &amp;r, int li);
+    
+public:
+    Roman();
+    
+    int romanToInt(const string &amp;r);
+};
+
+//Roman.cpp
+vector&lt;string&gt; Roman::letters = {"IVX","XLC","CDM","M  "};
+
+Roman::Roman() {
+    
+}
+
+int Roman::seqValue(int &amp;i, const string &amp;r, int li)
+{
+    if (i==r.size()) return 0;
+    else if (li&lt;0)   return 0;
+    else {
+        if (r[i]== letters[li][0]) {
+            i++;
+            if (i==r.size()) return 1*pow(10,li);
+            else if (r[i] == letters[li][1]) { i++; return 4*pow(10,li) + seqValue(i, r, li-1); }
+            else if (r[i] == letters[li][2]) { i++; return 9*pow(10,li) + seqValue(i, r, li-1); }
+            else return 1*pow(10,li) + seqValue(i, r, li);
+        }
+        else if (r[i] == letters[li][1]) {
+            i++;
+            return 5*pow(10,li) + seqValue(i, r, li);
+        }
+        else return seqValue(i, r, li-1);
+    }
+}
+<strong>
+int Roman::romanToInt(const string &amp;r) {
+	int i=0;
+	return seqValue(i, r, 3);
+}</strong>
+</code></pre>
+
+<p>Como podemos apreciar, para convertir un número romano a decimal, debemos llamar el método <strong>romanToInt</strong>. Este llamara al método <strong>seqValue</strong> con los parámetros apropiados. Iniciamos con el índice igual a cero (i==0, el primer carácter) y lo pasamos como una variable i, debido a que se pasa por referencia. Siguiente es el número romano (r), y finalmente el exponente más grande que debemos corroborar (3), porque un número romano no va a ser más grande que 4000 (4 * 10<sup>3</sup>).</p>
+
+<h2>¡Espera! Hace falta una última corrección</h2>
+
+<p>Hay un asunto con este algoritmo: básicamente, cada I es interpretada como un 1. Esto significa que, igual que III es 3, IIII es 4. Ahora bien, IV también es interpretado como 4, lo cual es correcto, pero también recibe IIII como un 4, lo cual no es deseable. Eso sin mencionar que incorrectamente interpretará a VIIII como un 9. Para arreglar este asunto, vamos a crear un nuevo método llamado singleValue cuyo único objetivo es leer secuencias de letras romanas apropiadas (I, X, C y M). El resultado es el siguiente:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+private:
+    static vector&lt;string&gt; letters;
+    int seqValue(int &amp;i, const string &amp;r, int li);
+    <strong>int singleValue(int &amp;i, const string &amp;r, int li, int qty);</strong>
+    
+public:
+    Roman();
+    
+    int romanToInt(const string &amp;r);
+};
+
+//Roman.cpp
+vector&lt;string&gt; Roman::letters = {"IVX","XLC","CDM","M  "};
+
+Roman::Roman() {
+    
+}
+
+int Roman::seqValue(int &amp;i, const string &amp;r, int li)
+{
+    if (i==r.size()) return 0;
+    else if (li&lt;0) return 0;
+    else {
+        if (r[i]== letters[li][0]) {
+            i++;
+            if (i==r.size()) return 1*pow(10,li);
+            else if (r[i] == letters[li][1]) { i++; return 4*pow(10,li) + seqValue(i, r, li-1); }
+            else if (r[i] == letters[li][2]) { i++; return 9*pow(10,li) + seqValue(i, r, li-1); }
+            else return 1*pow(10,li) + <strong>singleValue(i, r, li, 2);</strong>
+        }
+        else if (r[i] == letters[li][1]) {
+            i++;
+            return 5*pow(10,li) + <strong>singleValue(i, r, li, 3);</strong>
+        }
+        else return seqValue(i, r, li-1);
+    }
+}
+
+<strong>int Roman::singleValue(int &amp;i, const string &amp;r, int li, int qty) {
+    int cnt=0;
+    while (r[i]==letters[li][0]) {
+        i++;
+        cnt++;
+        if (cnt==qty) break;
+    }
+    return cnt*pow(10, li) + seqValue(i, r, li-1);
+}</strong>
+
+
+int Roman::romanToInt(const string &amp;r) {
+    int i=0;
+    return seqValue(i, r, 3);
+}
+</code></pre>
+
+<h2>Conclusión</h2>
+
+<p>Personalmente, siento que este algoritmo es sencillo, pero abstracto y quizás difícil de mantener y o controlar. Esta carencia de control es algo que me estorba. Preferiría utilizar mi primera opción: un Trie o árbol de búsqueda para resolver este ejercicio. De hecho, ¡Eso fue lo que hice en su momento! En un futuro próximo publicaré dicho algoritmo y lo explicaré en detalle.</p>
+
+<h2>Calculando la cota superior asintótica (Big-O)</h2>
+
+<p>La cota superior asintotica (o que tan bien escala el algoritmo dependiendo de que tan grande o complejo es el número romano que se desea convertir), es bastante simple. La respuesta es O(N) simplemente porque, cada letra es procesada una sola vez para convertir el número romano en decimal, salvo quizás algunas excepciones. Sin embargo, resulta que el número romano más largo (y por ende, el más complejo) es 3888 (MMMDCCCLXXXVIII), el cual tiene una longitud de 15 caracteres. Por lo tanto:</p>
+
+<pre><code>
+	T(N) = O(N) //pero N = 15 en el peor de los casos
+	T(N) = O(15)
+	T(N) = O(1)
+</code></pre>
+
+<p>Y así, se establece que convertir cualquier número romano toma casi el mismo tiempo que cualquier otro, simplemente porque los números romanos no escalan: solo van desde 1 a 3999.</p>
+
+<h3>Código</h3>
+
+<p>Les invito a descargar el código <a href="/code/03_romanToInt.zip">desde este enlace</a>. Está codificado en C++, y puede abrirse utilizando XCode para MAC OS X. o simplemente pueden importar el código a tu proyecto, no deberías tener muchos problemas.</p>

@@ -1,0 +1,354 @@
+<p>Converting from a Roman Numeral to a Decimal number is much harder than vice versa. This is because of two main reasons:</p>
+
+<ol>
+	<li><strong>Multiple symbols have to be read in order to determine what digit it represents.</strong> For example, if you are converting a Roman Numeral to decimal, and you find an <b>X</b>, then you might be inclined to assume that the value is 10, but that is not true, there could be another <b>X</b> after it, making it a 20, unless there is another <b>X</b> after that one, which would put it at 30.</li>
+	<li><strong>The end condition for a decimal digit, being converted from a Roman Numeral is either end of string, or it does not match the current digit sequence.</strong> This is a little complicated to explain but bare with me. What this means is, say for example <b>XXIII</b> (23), it has two digits: <b>XX</b> (2), and <b>III</b> (3), but once you are reading the numeral, and find yourself in the second <b>X</b>, you know that the number is at least a 20, but it could be 30 if the next one is an <b>X</b>, or a twenty something, depending on the next symbol. The fact is, you won't know for sure until you actually check what is the next symbol, and when you find an <b>I</b>, you can now rest assured that we have a twenty-something number, so we can return 20, and parse the rest and add to it later.</li>
+</ol>
+
+<p>The more complicated nature of the solution required to solve this problem, had my brain scrambling, developing a multitude of solutions:</p>
+
+<ol type="1">
+	<li><strong>Trie solution:</strong> As the name implies, it involves using <a target="_blank" href="https://en.wikipedia.org/wiki/Trie">tries</a>. A trie is data structure used to store words, or in this case, to store the roman numbers, in order to search quickly. I used two varieties of tries:
+		<ol type="a">
+			<li><strong>The super trie:</strong> I call it that because it is a trie that contains 4000 nodes, one for each roman value. Even though it is quite efficient, the only reason it is is because the roman numerals only reach up to 3999, effectively, cutting the trie short.</li>
+			<li><strong>The well connected trie:</strong> Basically involves creating 4 tries (digits, tens, hundreds and thousands), and connecting them strategically in order to parse efficiently a roman numeral while not consuming as much space. Each trie has up to 10 nodes, so the whole thing is done with less than 40 nodes.</li>
+		</ol>
+	</li>
+	<li><strong>Parsing algorithm:</strong> Just gave it a shot and designed an algorithm that would parse the roman numeral.</li>
+</ol>
+
+<p>So, for the sake of simplicity, we are going to develop a simple parsing algorithm, and take advantage of the limitations of roman numerals, and parse in the simplest way possible.</p>
+
+<h2>Before we begin</h2>
+
+<p>The coding language for this exercise will be in C++. It should be easy to port to other major languages such as Java and C#.</p>
+
+<p>I have already established some knowledge on understanding roman numerals. You can read my <a href="/en/post/converting-integers-to-roman-numerals">previous article</a>, that contains details on understanding roman numerals. You may also read the <a target="_blank" href="https://en.wikipedia.org/wiki/Roman_numerals">Wikipedia page</a> on roman numerals.</p>
+
+<p>For now, behold the table that allows us to convert from roman numerals to strings and vice-versa:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Digit</th>
+			<th>10<sup>3</sup></th>
+			<th>10<sup>2</sup></th>
+			<th>10<sup>1</sup></th>
+			<th>10<sup>0</sup></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>0</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr>
+			<th>1</th><td>M</td><td>C</td><td>X</td><td>I</td>
+		</tr>
+		<tr>
+			<th>2</th><td>MM</td><td>CC</td><td>XX</td><td>II</td>
+		</tr>
+		<tr>
+			<th>3</th><td>MMM</td><td>CCC</td><td>XXX</td><td>III</td>
+		</tr>
+		<tr>
+			<th>4</th><td></td><td>CD</td><td>XL</td><td>IV</td>
+		</tr>
+		<tr>
+			<th>5</th><td></td><td>D</td><td>L</td><td>V</td>
+		</tr>
+		<tr>
+			<th>6</th><td></td><td>DC</td><td>LX</td><td>VI</td>
+		</tr>
+		<tr>
+			<th>7</th><td></td><td>DCC</td><td>LXX</td><td>VII</td>
+		</tr>
+		<tr>
+			<th>8</th><td></td><td>DCCC</td><td>LXXX</td><td>VIII</td>
+		</tr>
+		<tr>
+			<th>9</th><td></td><td>CM</td><td>XC</td><td>IX</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Converting the first digit from Roman Numeral</h2>
+
+<p>Let us begin by writing a small piece of code that allows us to convert numbers from 1 to 9 in roman, to decimal:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+public:
+	int romanToInt(const int &amp;i, const string &amp;r);
+};
+
+//Roman.cpp
+int Roman::romanToInt(const int &amp;i, const string &amp;r) {
+	if (i==r.size()) return 0;
+	else {
+		if (r[i] == 'I') {
+			i++;
+			if (i==r.size()) return 1;
+			else if (r[i]=='V') return 4;
+			else if (r[i]=='X') return 9;
+			else return 1 + romanToInt(i, r); 
+		} else if (r[i]=='V') {
+			i++;
+			return 5 + romanToInt(i, r);
+		}
+		else return 0;
+	}
+}
+</code></pre>
+
+<p>Ok, so what was that? Well, there is a class called Roman which will encapsulate the algorithm (it's OOP design, but mostly aesthetic), and it has a method <strong>romanToInt</strong> which all it does it converts any roman numeral from I (1) to IX (9), into its decimal equivalent. Notice how the method calls itself in some occasions, we will examine those later.</p>
+
+<p>So, how does it do it? well, what we want to do is try to take a single letter and return it's appropriate value regardless of the sequence. For example, if we find an 'I', then we can return a 1. if we find a 'V', we can return a 5. This works fine until we reach the exceptions, which are IV (4) and IX (9), so what the method does is simply account for those exceptions, and if not, then just return the value.</p>
+
+<p>Now, notice the calls to the same method. These recursive calls are designed to account for any 'I's that could follow, say, a V (5) or an I (1). This means that we take into account I (1), II (2) and III (3) just by adding the 1's each time. The same is said for VI (6), VII (7) and VIII (8). The problem with this approach is that it will not only work for I, II and III, but it will also work for IIII, IIIII and in fact any sequence of I's. This may not be desirable.</p>
+
+<h2>Adding support for converting all Roman Numerals</h2>
+
+<p>Now that we have seen a simple code for only the first 9 roman numerals, we will now add support for interpreting all the rest. To do this, we must first add a table of letters, where each row of letters represents a power of 10:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>index</th>
+			<th>i</th>
+			<th>v</th>
+			<th>x</th>
+			<th>mult</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>0</th>
+			<td>I</td>
+			<td>V</td>
+			<td>X</td>
+			<td>10<sup>0</sup></td>
+		</tr>
+		<tr>
+			<th>1</th>
+			<td>X</td>
+			<td>L</td>
+			<td>C</td>
+			<td>10<sup>1</sup></td>
+		</tr>
+		<tr>
+			<th>2</th>
+			<td>C</td>
+			<td>D</td>
+			<td>M</td>
+			<td>10<sup>2</sup></td>
+		</tr>
+		<tr>
+			<th>3</th>
+			<td>M</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>10<sup>3</sup></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>The table not only represents the letters that we will use to parse roman numerals, it also reveals that once figure out the value of any given symbol, we must multiply it by an appropriate power of 10 (the mult column), Interestingly, the natural index (index column) of the table is equal to the exponent. So we can create a simple vector to store the letters and make sure the index corresponds to the exponent:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+	//...
+
+private:
+	static vector&lt;string&gt; letters;
+	
+	//...	
+};
+
+//Roman.cpp
+//...
+
+vector&lt;string&gt; Roman::letters = {
+//	0      1      2      3
+	"IVX", "XLC", "CDM", "M  "
+};
+
+//...
+</code></pre>
+
+<p>Now, with this static table, we can parse the roman numeral regardless of the position we are in, we just have to make sure to provide the correct exponent of 10. For now, let us modify the code to include the table, and also set the appropriate exponent. We will create a method seqValues to parse the roman numeral with the appropriate input parameters.</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+private:
+	static vector&lt;string&gt; letters;
+	int seqValues(const int &amp;i, const string &amp;r, int li);
+	//...
+};
+
+//Roman.cpp
+<strong>
+int Roman::seqValues(const int &amp;i, const string &amp;r, int li) {
+	if (i==r.size()) return 0;
+	else if (li &lt; 0) return 0;
+	else {
+		if (r[i] == letters[li][0]) {
+			i++;
+			if (i==r.size()) return pow(10,li);
+			else if (r[i]==letters[li][1]) {
+				i++;
+				return 4*pow(10,li) + seqValues(i,r, li-1);
+			} else if (r[i]==letters[li][2]) {
+				i++;
+				return 9*pow(10,li) + seqValues(i,r, li-1);
+			} else {
+				i++;
+				return pow(10,li) + seqValues(i, r, li); 
+			}
+		} else if (r[i]==letters[li][1]) {
+			i++;
+			return 5*pow(10,li) + seqValues(i, r, li);
+		}
+		else return seqValues(i, r, li-1);
+	}
+}
+</strong>
+</code></pre>
+
+<p>So, what has changed? Well, first and foremost we added the letters table, which will give us the appropriate letters to compare to while parsing. li represents the row of the table and also the exponent of 10. Previously we would return a number (1, 4, 9 or 5) depending on the letter we found; now we return the same number and multiply it to 10<sup>li</sup>. Also, notice how we now make three more recursive calls to the seqValues method (add to 4, add to 9 and the call on the final else), these calls represent the fact that after a 4, a 9, or if we could not find a symbol for the current exponent, then there is nothing more to parse for the current exponent, and we must reduce the exponent by one and parse the next section of the number. For example, if We find an MC (900) then we know that there are no more letters for the hundreds section of the roman numeral, so we must call the same method but with different symbols and lower exponent. In other words, we are done with the hundreds (the result is 900) and now we must check the tens; and after that, the singles. As for the final else, we make sure that we are trying we check all exponents even if they don't exists; for example MX (1010) has only the thousands and the tens exponent present, but we still check for all of them. If an exponent is not detected, then we add nothing and just try the next exponent.</p>
+
+<h2>Exposing the method.</h2>
+
+<p>And there you have it! This method does all the work. Now all we have to do is expose it:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+private:
+    static vector&lt;string&gt; letters;
+    int seqValue(int &amp;i, const string &amp;r, int li);
+    
+public:
+    Roman();
+    
+    int romanToInt(const string &amp;r);
+};
+
+//Roman.cpp
+vector&lt;string&gt; Roman::letters = {"IVX","XLC","CDM","M  "};
+
+Roman::Roman() {
+    
+}
+
+int Roman::seqValue(int &amp;i, const string &amp;r, int li)
+{
+    if (i==r.size()) return 0;
+    else if (li&lt;0)   return 0;
+    else {
+        if (r[i]== letters[li][0]) {
+            i++;
+            if (i==r.size()) return 1*pow(10,li);
+            else if (r[i] == letters[li][1]) { i++; return 4*pow(10,li) + seqValue(i, r, li-1); }
+            else if (r[i] == letters[li][2]) { i++; return 9*pow(10,li) + seqValue(i, r, li-1); }
+            else return 1*pow(10,li) + seqValue(i, r, li);
+        }
+        else if (r[i] == letters[li][1]) {
+            i++;
+            return 5*pow(10,li) + seqValue(i, r, li);
+        }
+        else return seqValue(i, r, li-1);
+    }
+}
+<strong>
+int Roman::romanToInt(const string &amp;r) {
+	int i=0;
+	return seqValue(i, r, 3);
+}</strong>
+</code></pre>
+
+<p>As we can see, in order to convert a roman numeral to a decimal, we must call the romanToInt method. This will call the seqValue method with the proper parameters. We start with index equal to zero (i==0, the first character) and we pass it as a variable because it is required as a reference. Next is the roman numeral string (r), and finally the largest exponent available (3) which is a reference to the maximum number of digits allowed minus one.</p>
+
+<h2>Wait! There is one last problem to solve</h2>
+
+<p>So, there is an issue with this algorithm: basically, every I is interpreted as a 1, that means that, just as III is 3, IIII is also 4. Now IV is also interpreted as 4, but it will take IIII just the same. Not to mention that it will accept VIIII as a 9. To fix this issue, we are going to create a new method called singleValue that is only meant to read a sequence of I's, or a sequence of singles (I, X, C and M). Here is the result:</p>
+
+<pre><code>
+//Roman.hpp
+class Roman {
+private:
+    static vector&lt;string&gt; letters;
+    int seqValue(int &amp;i, const string &amp;r, int li);
+    <strong>int singleValue(int &amp;i, const string &amp;r, int li, int qty);</strong>
+    
+public:
+    Roman();
+    
+    int romanToInt(const string &amp;r);
+};
+
+//Roman.cpp
+vector&lt;string&gt; Roman::letters = {"IVX","XLC","CDM","M  "};
+
+Roman::Roman() {
+    
+}
+
+int Roman::seqValue(int &amp;i, const string &amp;r, int li)
+{
+    if (i==r.size()) return 0;
+    else if (li&lt;0) return 0;
+    else {
+        if (r[i]== letters[li][0]) {
+            i++;
+            if (i==r.size()) return 1*pow(10,li);
+            else if (r[i] == letters[li][1]) { i++; return 4*pow(10,li) + seqValue(i, r, li-1); }
+            else if (r[i] == letters[li][2]) { i++; return 9*pow(10,li) + seqValue(i, r, li-1); }
+            else return 1*pow(10,li) + <strong>singleValue(i, r, li, 2);</strong>
+        }
+        else if (r[i] == letters[li][1]) {
+            i++;
+            return 5*pow(10,li) + <strong>singleValue(i, r, li, 3);</strong>
+        }
+        else return seqValue(i, r, li-1);
+    }
+}
+
+<strong>int Roman::singleValue(int &amp;i, const string &amp;r, int li, int qty) {
+    int cnt=0;
+    while (r[i]==letters[li][0]) {
+        i++;
+        cnt++;
+        if (cnt==qty) break;
+    }
+    return cnt*pow(10, li) + seqValue(i, r, li-1);
+}</strong>
+
+
+int Roman::romanToInt(const string &amp;r) {
+    int i=0;
+    return seqValue(i, r, 3);
+}
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>Personally, the lack of control of this algorithm is something I find a bit disturbing. I would have rather used my first option: a Trie, to solve this exercise. In fact, I did! and hopefully, I will publish that algorithm sometime in the future.</p>
+
+<h3>Big-O Calculation</h3>
+
+<p>Big-O formula for this exercise is very simple: it is O(N), where N is the number of letters to parse. Each letter is processed once, save for a couple of exceptions. However turns out that the maximum amount of letters is about 15, which is the character length of the number 3888 (MMMDCCCLXXXVIII), the largest roman number in terms of length. therefore:</p>
+
+<pre><code>
+	T(N) = O(N) //but N = 15 at worst
+	T(N) = O(15)
+	T(N) = O(1)
+</code></pre>
+
+<p>And that is it. Parsing each roman numeral takes roughly the same time, simply because roman numerals are not scalable: they only go from 1 to 3999.</p>
+
+<h3>Code</h3>
+
+<p>I invite you to download the code <a href="/code/03_romanToInt.zip">from here</a>. It is coded in C++, and can be opened using XCode on MAC OS X, or you can just import it into your project, it should be fine.</p>

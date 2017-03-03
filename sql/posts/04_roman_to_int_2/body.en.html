@@ -1,0 +1,48 @@
+<p>We are now going to parse Roman Numerals using a Roman Super <a target="_blank" href="https://en.wikipedia.org/wiki/Trie">Trie</a>. A Trie is a tree-like data structure usefull for searchig words. The Roman Super Trie is a term I use to refer to a Trie that has all thr roman numerals within its structure, all 3999 of them.</p>
+
+<p>With this structure, to parse a Roman Numeral, all I would have to do is search each letter within the adjacent nodes. At first, it felt as a very efficien algorithm, and it is quite so. However, after developing the algorithm from the previous article on how to parse Roman Numerals using no complex data structure, it now feels like overkill, or unnecesary.</p>
+
+<p>But, since we are here to learn, might as well give it a go!</p>
+
+<h2>Parsing algoritm</h2>
+<p>The parsing algorithm, or rather, the code in charge of converting a Roman Numeral to an integer is really quite simple:</p>
+
+<pre><code>
+/*
+class Node {
+	int data;
+	map&lt;char, Node *&gt; adj;
+};
+Node *root;
+string s;
+*/
+int i=0;
+Node *p = root, *pp=NULL;
+char c;
+int n=s.size();
+while (i < n) {
+	c = s[i++];
+	auto t = p->adj->find(c);
+	if (t != p->adj->end()) {
+		pp = p;
+		p = t->second;
+	} else {
+		return (pp!=NULL) ? pp->data : 0;
+	}
+}
+return (pp!=NULL) ? pp->data : 0;
+</code></pre>
+
+<p>Notice that, all the algorithm does is search for nodes in the trie, and each time it finds a letter in the adjacent nodes, it advances to that node and the search repeats for the next letter, until either (1) we are out of letters, so we are done; or (2) we did not find the letter, so we break early. Once we finish all we have to do is return the value of the final node, which holds the corresponding numeric value of the given Roman Numeral. So in the end, all we do is return the value of the last node we have found.</p>
+
+<p>So then, parsing the roman numeral is no challenge. The real challenge is: How do we create that Trie? Well, let's see!</p>
+
+<h2>Creating the Trie</h2>
+
+<p>We will begin by creating a simple trie which will convert any Roman Numeral from I (1) to IX (9). The trie looks like the following:</p>
+
+<p>TODO TRIE</p>
+
+<p>Keep in mind that the trie has a root node. Le letter or character stored in the root node is irrelevant. The Idea is that we start at the root, and compare the first letter to any of the adjacent letters (I, V or X), if found, we advance. Once we are done, either because we did not find the letter, or because there are no more letters, we return the value stored in the current node.</p>
+
+<h2></h2>

@@ -53,7 +53,7 @@
    	<div class="row header-content">
 
    		<div class="logo">
-	         <a href="/">Author</a>
+	         <a href="/">Marco's Blog</a>
 	      </div>
 
 	      @include('elements.abstract.nav')

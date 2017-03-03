@@ -17,6 +17,7 @@ class HomeController extends Controller {
 		$posts = DB::table('posts')
 			->select('lang', 'uslug', 'title', 'descr', 'cover')
 			->where('lang', $locale)
+			->orderBy('id', 'desc')
 			->get();
 		return view('abstract_index',['posts' => $posts]);
 	}

@@ -4,9 +4,9 @@
 
 <p>No entraré en mucho detalle sobre los números romanos y su historia. Si prefieres, puedes leer sobre todo eso en este articulo de <a target="_blank" href="https://es.wikipedia.org/wiki/Numeraci%C3%B3n_romana">wikipedia</a>.</p>
 
-<p>Si miras de cerca a los números romanos, encontraras que estos son ed su defecto, decimales, y se puede decir que para cada dígito decimal de una secuencia de dígitos (ej: 123), existe una representación romana (CXXIII). Es decir, aun cuando cada dígito de una secuencia de números romanos no comparte las mismas letras, cada dígito de una secuencia de numerales romanos si comparte una plantilla de letras.</p>
+<p>Si miras de cerca a los números romanos, encontraras que estos son, en su defecto, decimales, y se puede decir que para cada dígito decimal de una secuencia de dígitos (ej: 123), existe una representación romana (CXXIII). Es decir, aun cuando cada dígito de una secuencia de números romanos no comparte las mismas letras, cada dígito de una secuencia de numerales romanos si comparte una plantilla de letras.</p>
 
-<p>Para ilustrar, desplegamos una table de números romanos y números decimales del 1 al 9, y al lado la misma pero de múltiplos de 10 y sys representación en romano.</p>
+<p>Para ilustrar, desplegamos una tabla de números romanos y números decimales del 1 al 9, y al lado la misma pero de múltiplos de 10 y su representación en romano.</p>
 
 <table>
 	<thead>
@@ -45,7 +45,7 @@
 	</tbody>
 </table>
 
-<p>Quizás, que al ver esta tabla empiezas a reconocer un patrón. Los números romanos 1 al 9 comparten la misma combinación de letras con los múltiplos de 10, que van del 10 al 90, aunque no las letras en si. Por ejemplo, la diferencia entre el 3 y el 30 es que en vez de usar Is, utilizamos Xs. La diferencia entre el 8 y el 80 es que en vex de utilizar Vs y Is, utilizamos Ls y Xs. Este patrón se repite hasta llegar al limite de 3999, el número romano mas grande que se puede representar.</p>
+<p>Quizás, al ver esta tabla empiezas a reconocer un patrón. Los números romanos 1 al 9 comparten la misma combinación de letras con los múltiplos de 10, que van del 10 al 90, aunque no las letras en si. Por ejemplo, la diferencia entre el 3 y el 30 es que en vez de usar Is, utilizamos Xs. La diferencia entre el 8 y el 80 es que en vex de utilizar Vs y Is, utilizamos Ls y Xs. Este patrón se repite hasta llegar al limite de 3999, el número romano mas grande que se puede representar.</p>
 
 <p>Así que, veamos la tabla completa que incluye todos los dígitos, y adicionalmente, los múltipos de 10, 100 y 1000.</p>
 
@@ -168,7 +168,7 @@ public:
 
 <p>Lo segundo que notamos es la variable privada <b>buffer</b>, un arreglo de caractéres. Allí es donde almacenaremos el número romano como string, mientras recorremos el número decimal. Al final, dicho buffer será copiado a un string y este será devuelto.</p>
 
-<p>Tercéro, notamos el método privado <b>digit</b>. Este método estará a cargo de convertir un dígito independiente a su correspondiente secuencia romana. Miremos a sis parámetros: La variable <b>k</b> es el índice del arreglo (buffer) en donde almacenamos el número romano, y se pasa por referencia debido a que necesitamos llevar registro de por donde vamos y en donde quedamos luego de terminar una conversión. Le sigue el entero <b>d</b>, que no es mas que el dígito a convertir, un numero entre 0 y 9, donde el 0 se ignorará, y el resto se convertirán directamente. Luego vemos 3 caracteres: <b>i</b>, <b>v</b> y <b>x</b>. Estos son las letras que utilizaremos para convertir el dígito a romano. Esencialmente, estas letras serán distintas dependiendo de en que posición del número decimal se encuentra el dígito que estamos convirtiendo.</p>
+<p>Tercéro, notamos el método privado <b>digit</b>. Este método estará a cargo de convertir un dígito independiente a su correspondiente secuencia romana. Miremos a sus parámetros: La variable <b>k</b> es el índice del arreglo (buffer) en donde almacenamos el número romano, y se pasa por referencia debido a que necesitamos llevar registro de por donde vamos y en donde quedamos luego de terminar una conversión. Le sigue el entero <b>d</b>, que no es mas que el dígito a convertir, un numero entre 0 y 9, donde el 0 se ignorará, y el resto se convertirán directamente. Luego vemos 3 caracteres: <b>i</b>, <b>v</b> y <b>x</b>. Estos son las letras que utilizaremos para convertir el dígito a romano. Esencialmente, estas letras serán distintas dependiendo de en que posición del número decimal se encuentra el dígito que estamos convirtiendo.</p>
 
 <p>Finalmente, vemos a el método público <b>intToRoman</b>, que será el que obtendrá cada dígito y lo convertirá uno por uno.</p>
 
@@ -287,7 +287,7 @@ int main(int argc, const char *argv[]) {
 
 <p>Calcular la eficiencia del algoritmo es relativamente fácil. Inicialmente se puede ver que hay un ciclo repetitivo, lo que sugiere que podría haber algo de complejidad en el algoritmo. Iniciemos por decir que vamos a calcular T(N) donde N es la cantidad de dígitos que contiene el número decimal que se va a convertir a romano.</p>
 <pre><code>T(N) = O(N)</code></pre>
-<p>Entonces T(N) = O(N), sin embargo, No es posible convertir números mas grandes que que 3999, por lo tanto, N no puede tener mas de 4 dígitos:</p>
+<p>Entonces T(N) = O(N), sin embargo, No es posible convertir números mas grandes que 3999, por lo tanto, N no puede tener mas de 4 dígitos:</p>
 <pre><code>T(N) = O(4)
 T(N) = O(1)</code></pre>
 
