@@ -20,10 +20,7 @@
     "angular-animate": "^1.5.8",
     "angular-route": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "Photo-Sphere-Viewer": "^3.2.2",
-    "threejs": "*",
     "dot": "^1.1.0",
-    "uevent": "^1.0.0",
     "d.js": "^1.6.0"
   }
 }

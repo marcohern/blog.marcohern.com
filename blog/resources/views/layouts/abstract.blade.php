@@ -40,16 +40,8 @@
 	<link rel="shortcut icon" href="{{ URL::Asset('abstract/favicon.ico') }}" type="image/x-icon">
 	<link rel="icon" href="{{ URL::Asset('abstract/favicon.ico') }}" type="image/x-icon">
 
-  <!-- photo sphere viewer
-  ================================================== -->
-  <link rel="stylesheet" href="{{ URL::Asset('lib/Photo-Sphere-Viewer/dist/photo-sphere-viewer.css') }}">
-
-  <script src="{{ URL::Asset('lib/three.js/three.min.js') }}"></script>
-  <script src="{{ URL::Asset('lib/d.js/dist/d.min.js') }}"></script>
-  <script src="{{ URL::Asset('lib/uevent/uevent.min.js') }}"></script>
-  <script src="{{ URL::Asset('lib/doT/doT.min.js') }}"></script>
-<script src="{{ URL::Asset('lib/Photo-Sphere-Viewer/dist/photo-sphere-viewer.js') }}"></script>
-
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
+  <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
 </head>
 
 <body id="top">

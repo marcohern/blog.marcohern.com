@@ -21,8 +21,10 @@
 	@endforeach
 
 		</div>
+<iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm?panorama=https://pannellum.org/images/alma.jpg"></iframe>
 	</div>
 </section>
+
 @stop
 
 @section('scripts')
