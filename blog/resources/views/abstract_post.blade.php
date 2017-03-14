@@ -38,8 +38,6 @@
 
 						{!! $post->body !!}
 
-						<div id="panorama" style="width:100%;height:400px"></div>
-
 						@include('elements.abstract.about_author')
 
 					</div> <!-- end entry-primary -->		  			   
