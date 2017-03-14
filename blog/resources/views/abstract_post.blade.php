@@ -6,6 +6,10 @@
 @section('description')
 {{ $post->descr }} @stop
 
+@section('css')
+<link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
+@stop
+
 @section('body')
 <!-- content
    ================================================== -->
@@ -32,7 +36,9 @@
 
 						{!! $post->body !!}
 
-						@include('elements.abstract.about_author')				
+						<iframe allowfullscreen style="border-style:none;width:100%;height:400px" src="https://cdn.pannellum.org/2.3/pannellum.htm?panorama=https://pannellum.org/images/alma.jpg"></iframe>
+
+						@include('elements.abstract.about_author')
 
 					</div> <!-- end entry-primary -->		  			   
 
@@ -51,4 +57,5 @@
 @stop
 
 @section('scripts')
+  <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
 @stop

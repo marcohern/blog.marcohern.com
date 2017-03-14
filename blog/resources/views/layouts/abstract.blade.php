@@ -40,8 +40,7 @@
 	<link rel="shortcut icon" href="{{ URL::Asset('abstract/favicon.ico') }}" type="image/x-icon">
 	<link rel="icon" href="{{ URL::Asset('abstract/favicon.ico') }}" type="image/x-icon">
 
-  <link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
-  <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
+  @yield('css')
 </head>
 
 <body id="top">
