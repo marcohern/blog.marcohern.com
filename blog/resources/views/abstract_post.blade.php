@@ -57,10 +57,4 @@
 	@foreach($scripts as $url)
   		<script src="{{ $url }}"></script>
   	@endforeach
-  	<script>
-pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "/images/panos/PANO_20170222_071146.jpg"
-});
-</script>
 @stop
