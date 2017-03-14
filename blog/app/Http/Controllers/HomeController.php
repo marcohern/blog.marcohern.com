@@ -26,6 +26,8 @@ class HomeController extends Controller {
 		$post = DB::table('posts')
 			->select('*')
 			->where('uslug',$post)->first();
+		$css = explode("\n", $post->css);
+		$scripts = explode("\n", $post->scripts);
 
 		$languages = DB::table('posts')
 			->select('lang','uslug')
@@ -34,7 +36,12 @@ class HomeController extends Controller {
 				['lslug',$post->lslug]
 			])->get();
 
-		return view('abstract_post',['post' => $post,'nav_lang' => $languages]);
+		return view('abstract_post',[
+			'post' => $post,
+			'nav_lang' => $languages,
+			'css' => $css,
+			'scripts' => $scripts,
+		]);
 	}
 
 	public function about() {

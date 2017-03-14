@@ -7,7 +7,9 @@
 {{ $post->descr }} @stop
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
+	@foreach($css as $url)
+  		<link rel="stylesheet" href="{{ $url }}">
+  	@endforeach
 @stop
 
 @section('body')
@@ -36,14 +38,11 @@
 
 						{!! $post->body !!}
 
-						<iframe allowfullscreen style="border-style:none;width:100%;height:400px" src="https://cdn.pannellum.org/2.3/pannellum.htm?panorama=https://pannellum.org/images/alma.jpg"></iframe>
+						<div id="panorama" style="width:100%;height:400px"></div>
 
 						@include('elements.abstract.about_author')
 
 					</div> <!-- end entry-primary -->		  			   
-
-	  			   
-
 				</article>
    		
 
@@ -57,5 +56,13 @@
 @stop
 
 @section('scripts')
-  <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
+	@foreach($scripts as $url)
+  		<script src="{{ $url }}"></script>
+  	@endforeach
+  	<script>
+pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "/images/panos/PANO_20170222_071146.jpg"
+});
+</script>
 @stop
