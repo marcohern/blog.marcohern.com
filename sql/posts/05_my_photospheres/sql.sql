@@ -18,7 +18,7 @@ INSERT INTO posts(id, lang, lslug, title, uslug, descr, body, css, scripts, user
 	'I explain how I deployed photosphere (360 panorama) viewers on my blog using my own photopheres, which I took with my cellphone camera.',
 	'',
 	'/lib/pannellum/css/pannellum.css',
-	'/lib/pannellum/js/libpannellum.js\n/lib/pannellum/js/pannellum.js\n/js/posts/testing-panorama-viewers.js',
+	'/lib/pannellum/js/libpannellum.js\n/lib/pannellum/js/pannellum.js\n/js/posts/testing-panorama-viewers.en.js',
 	1,'testing-panorama-viewers',
 	'true',
 	NOW()
@@ -32,7 +32,7 @@ INSERT INTO posts(id, lang, lslug, title, uslug, descr, body, css, scripts, user
 	'Explico como logre implementar en mi blog visores para mis propias Foto-esferas que yo he tomado con la camara de mi movil.',
 	'',
 	'/lib/pannellum/css/pannellum.css',
-	'/lib/pannellum/js/libpannellum.js\n/lib/pannellum/js/pannellum.js\n/js/posts/testing-panorama-viewers.js',
+	'/lib/pannellum/js/libpannellum.js\n/lib/pannellum/js/pannellum.js\n/js/posts/testing-panorama-viewers.es.js',
 	1,'testing-panorama-viewers',
 	'true',
 	NOW()
